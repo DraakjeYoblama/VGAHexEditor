@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Wed Nov 30 17:16:54 2022
+# Process ID: 21300
+# Current directory: C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5144 C:\Users\douwe\Documents\Vivado Projects\VGAHexEditorGit\VGAHexEditorGit.xpr
+# Log file: C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/vivado.log
+# Journal file: C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.xpr}
