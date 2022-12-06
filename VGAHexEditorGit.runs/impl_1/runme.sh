@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Vivado/VGAcontrollerTXT/VGAcontrollerTXT.runs/impl_1'
+HD_PWD='C:/Vivado/GitHub/VGAHexEditor/VGAHexEditorGit.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
