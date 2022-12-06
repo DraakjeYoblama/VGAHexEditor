@@ -1,8 +1,8 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Wed Nov 16 16:15:00 2022
-// Host        : Omen-17 running 64-bit major release  (build 9200)
+// Date        : Tue Dec  6 14:20:28 2022
+// Host        : LAPTOP-LMFK3M5V running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_VGA_timings_0_0_sim_netlist.v
 // Design      : design_1_VGA_timings_0_0

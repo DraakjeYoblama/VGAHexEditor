@@ -23,10 +23,10 @@
 
 module num_capture_4bit(
     input wire iClk,iRst,iPush,iStop,
+    output wire [3:0] oLEDs,
     output wire[9:0] oAddr,
     output wire[11:0] oData,
-    
-output wire oWe, 
+    output wire oWe, 
     
     output wire [2:0] oDebug1,oDebug2
     );
@@ -37,7 +37,7 @@ output wire oWe,
     localparam sInc = 3;
     localparam sDsply = 4;
     
-    reg     [7:0] counter,nCounter;
+    reg     [7:0] counter,nCounter; //used for debug, unused in final project
    
     //define internal register
     reg[2:0] rFSM_Curr,rFSM_Next;
@@ -112,61 +112,52 @@ output wire oWe,
     end
     
     //part 3: ouput logic with next number logic integrated
-    reg [3:0] rLEDs;
-    /*
-    always @(*)
-    begin
-    rLEDs = 0;
-      case(rFSM_Curr)
-        sRst: 
-            begin
-             rNextNum = 0;
-             end
-        sIdle:
-            begin 
-            rNextNum = rCurrNum;
-            end
-        sPush:
-            begin 
-            rNextNum = rCurrNum;
-            end
-        sInc:
-            begin 
-            rNextNum = rCurrNum  + 1;
-            end
-        sDsply:
-            begin 
-            rLEDs = rCurrNum;
-            rNextNum = rCurrNum;
-            end
-      default:
-        rNextNum = rNextNum;
-     endcase
-     rCurrNum = rNextNum;
-     end
-     */
-     
+    reg [3:0] rData;
+    
      always @(posedge iClk)
      begin
         rCurrNum <= rNextNum;
     
      if (rFSM_Curr == sDsply)
-        rLEDs = rCurrNum;
+        rData = rCurrNum;
      else
-        rLEDs = 0;
+        rData = 0;
      end
 
 
      always @(*)
      begin
-        if (rFSM_Curr == sRst)
-            rNextNum = 0;
-        else 
         if (rFSM_Curr == sInc)
-            rNextNum = rCurrNum + 1;
+            rNextNum = rCurrNum + 1;   
+        else
+        if (rFSM_Curr == sRst)
+            rNextNum = 0;    
         else
             rNextNum = rCurrNum;
      end
         
-     assign oLEDs = rLEDs;
+     assign oLEDs = rData;
+     
+     //part 4: integration with the VGA modules
+     reg [5:0] rHorizontalEdit;
+     reg [3:0] rVerticalEdit;
+     
+     always @(*)
+     begin
+        if(iPush == 1 && rHorizontalEdit < 40)
+            rHorizontalEdit = rHorizontalEdit + 1;
+        else if(iPush == 1 && rHorizontalEdit == 40)
+             begin 
+             rHorizontalEdit = 0;
+             rVerticalEdit = rVerticalEdit +1;
+             end
+        else if(iPush == 1 && rVerticalEdit >= 15)
+             begin
+                rHorizontalEdit = 0;
+                rVerticalEdit = 0;
+             end
+     end
+     assign oData = (rData <= 9)? (512+32*rData) : (1056 + 32*(rData-10));
+     assign oAddr = 15*rVerticalEdit + rHorizontalEdit;
+     assign oWe = iStop;
      endmodule

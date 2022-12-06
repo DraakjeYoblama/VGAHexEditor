@@ -18,16 +18,16 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_VGA_ti
 # IP: bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_clk_wiz_0_0 || ORIG_REF_NAME==design_1_clk_wiz_0_0} -quiet] -quiet
 
-# IP: bd/design_1/ip/design_1_xlconstant_0_0/design_1_xlconstant_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_xlconstant_0_0 || ORIG_REF_NAME==design_1_xlconstant_0_0} -quiet] -quiet
-
-# IP: bd/design_1/ip/design_1_xlconstant_1_0/design_1_xlconstant_1_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_xlconstant_1_0 || ORIG_REF_NAME==design_1_xlconstant_1_0} -quiet] -quiet
-
-# IP: bd/design_1/ip/design_1_xlconstant_2_0/design_1_xlconstant_2_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_xlconstant_2_0 || ORIG_REF_NAME==design_1_xlconstant_2_0} -quiet] -quiet
-
 # IP: bd/design_1/ip/design_1_AsciiCharsMem_0_0/design_1_AsciiCharsMem_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_AsciiCharsMem_0_0 || ORIG_REF_NAME==design_1_AsciiCharsMem_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_num_capture_4bit_0_0/design_1_num_capture_4bit_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_num_capture_4bit_0_0 || ORIG_REF_NAME==design_1_num_capture_4bit_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_Debounce_Switch_0_0/design_1_Debounce_Switch_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_Debounce_Switch_0_0 || ORIG_REF_NAME==design_1_Debounce_Switch_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_Debounce_Switch_1_0/design_1_Debounce_Switch_1_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_Debounce_Switch_1_0 || ORIG_REF_NAME==design_1_Debounce_Switch_1_0} -quiet] -quiet
 
 # XDC: bd/design_1/design_1_ooc.xdc
