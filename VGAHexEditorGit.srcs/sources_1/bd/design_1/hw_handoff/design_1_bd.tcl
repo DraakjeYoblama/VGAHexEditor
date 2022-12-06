@@ -170,6 +170,8 @@ proc create_root_design { parentCell } {
   set iRst [ create_bd_port -dir I iRst ]
   set iStop [ create_bd_port -dir I iStop ]
   set oBlue [ create_bd_port -dir O -from 3 -to 0 oBlue ]
+  set oDebug1 [ create_bd_port -dir O -from 2 -to 0 oDebug1 ]
+  set oDebug2 [ create_bd_port -dir O -from 2 -to 0 oDebug2 ]
   set oGreen [ create_bd_port -dir O -from 3 -to 0 oGreen ]
   set oHS [ create_bd_port -dir O oHS ]
   set oLEDs [ create_bd_port -dir O -from 3 -to 0 oLEDs ]
@@ -292,6 +294,8 @@ proc create_root_design { parentCell } {
   connect_bd_net -net i_Switch_0_2 [get_bd_ports iStop] [get_bd_pins Debounce_Switch_1/i_Switch]
   connect_bd_net -net num_capture_4bit_0_oAddr [get_bd_pins ScreenBufferMem_0/iAddrB] [get_bd_pins num_capture_4bit_0/oAddr]
   connect_bd_net -net num_capture_4bit_0_oData [get_bd_pins ScreenBufferMem_0/iDataB] [get_bd_pins num_capture_4bit_0/oData]
+  connect_bd_net -net num_capture_4bit_0_oDebug1 [get_bd_ports oDebug1] [get_bd_pins num_capture_4bit_0/oDebug1]
+  connect_bd_net -net num_capture_4bit_0_oDebug2 [get_bd_ports oDebug2] [get_bd_pins num_capture_4bit_0/oDebug2]
   connect_bd_net -net num_capture_4bit_0_oLEDs [get_bd_ports oLEDs] [get_bd_pins num_capture_4bit_0/oLEDs]
   connect_bd_net -net num_capture_4bit_0_oWe [get_bd_pins ScreenBufferMem_0/iWeB] [get_bd_pins num_capture_4bit_0/oWe]
 

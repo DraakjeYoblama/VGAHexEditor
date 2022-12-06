@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x181570A5D84BFB6",
+      "boundary_crc": "0xD796C33E900B0D9E",
       "device": "xc7z020clg400-1",
       "name": "design_1",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -79,6 +79,16 @@
       "oLEDs": {
         "direction": "O",
         "left": "3",
+        "right": "0"
+      },
+      "oDebug1": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "oDebug2": {
+        "direction": "O",
+        "left": "2",
         "right": "0"
       }
     },
@@ -638,6 +648,18 @@
         "ports": [
           "num_capture_4bit_0/oLEDs",
           "oLEDs"
+        ]
+      },
+      "num_capture_4bit_0_oDebug1": {
+        "ports": [
+          "num_capture_4bit_0/oDebug1",
+          "oDebug1"
+        ]
+      },
+      "num_capture_4bit_0_oDebug2": {
+        "ports": [
+          "num_capture_4bit_0/oDebug2",
+          "oDebug2"
         ]
       }
     }
