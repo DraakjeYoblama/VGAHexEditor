@@ -36,6 +36,7 @@ module num_capture_4bit(
     localparam sPush = 2;
     localparam sInc = 3;
     localparam sDsply = 4;
+    localparam sMoveEdit = 5;
     
     reg     [7:0] counter,nCounter; //used for debug, unused in final project
    
@@ -104,7 +105,9 @@ module num_capture_4bit(
                 if(iStop == 1)
                     rFSM_Next <= sDsply;
                 else
-                    rFSM_Next <= sRst;
+                    rFSM_Next <= sMoveEdit;
+            sMoveEdit:
+                rFSM_Next <= sRst;
             
             default: 
             rFSM_Next <= sRst;
@@ -139,25 +142,45 @@ module num_capture_4bit(
      assign oLEDs = rData;
      
      //part 4: integration with the VGA modules
-     reg [5:0] rHorizontalEdit;
+     /*reg [5:0] rHorizontalEdit;
      reg [3:0] rVerticalEdit;
      
      always @(*)
      begin
-        if(iPush == 1 && rHorizontalEdit < 40)
+        if(rFSM_Curr == sMoveEdit && rHorizontalEdit < 40)
             rHorizontalEdit = rHorizontalEdit + 1;
-        else if(iPush == 1 && rHorizontalEdit == 40)
+        else if(rFSM_Curr == sMoveEdit && rHorizontalEdit == 40)
              begin 
              rHorizontalEdit = 0;
              rVerticalEdit = rVerticalEdit +1;
              end
-        else if(iPush == 1 && rVerticalEdit >= 15)
+        else if(rFSM_Curr == sMoveEdit && rVerticalEdit >= 15)
              begin
                 rHorizontalEdit = 0;
                 rVerticalEdit = 0;
              end
      end
-     assign oData = (rData <= 9)? (512+32*rData) : (1056 + 32*(rData-10));
-     assign oAddr = 15*rVerticalEdit + rHorizontalEdit;
-     assign oWe = iStop;
+     assign oDebug1 = (counter == 1)? rHorizontalEdit : 0;
+     assign oDebug2 = (counter == 1)? rVerticalEdit : 0;
+     assign oWe = (rFSM_Curr == sMoveEdit)? 1 : 0;
+     assign oAddr = (rFSM_Curr == sMoveEdit) ? 15*rVerticalEdit + rHorizontalEdit :0;
+     assign oData = oAddr;//(rData <= 9)? (512+32*rData) : (1056 + 32*(rData-10));
+     */
+     
+     reg[9:0] rAddr;
+     
+     always @(*)
+     begin
+        if(rAddr < 599)
+        rAddr = rAddr +1;
+        else
+        rAddr = 0;
+     end
+     
+     assign oDebug1 = (counter == 1)? rAddr[2:0] : 0;
+     assign oDebug2 = (counter == 1)? rAddr[9:7] : 0;
+     assign oWe = (rFSM_Curr == sMoveEdit)? 1 : 0;
+     assign oAddr = (rFSM_Curr == sMoveEdit) ? rAddr :0;
+     assign oData = rAddr;//(rData <= 9)? (512+32*rData) : (1056 + 32*(rData-10));
+     
      endmodule

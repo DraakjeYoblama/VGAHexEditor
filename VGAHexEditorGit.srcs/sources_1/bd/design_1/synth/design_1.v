@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-//Date        : Tue Dec  6 14:45:42 2022
+//Date        : Tue Dec  6 15:34:27 2022
 //Host        : LAPTOP-LMFK3M5V running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -16,6 +16,8 @@ module design_1
     iRst,
     iStop,
     oBlue,
+    oDebug1,
+    oDebug2,
     oGreen,
     oHS,
     oLEDs,
@@ -26,6 +28,8 @@ module design_1
   input iRst;
   input iStop;
   output [3:0]oBlue;
+  output [2:0]oDebug1;
+  output [2:0]oDebug2;
   output [3:0]oGreen;
   output oHS;
   output [3:0]oLEDs;
@@ -54,6 +58,8 @@ module design_1
   wire i_Switch_0_2;
   wire [9:0]num_capture_4bit_0_oAddr;
   wire [11:0]num_capture_4bit_0_oData;
+  wire [2:0]num_capture_4bit_0_oDebug1;
+  wire [2:0]num_capture_4bit_0_oDebug2;
   wire [3:0]num_capture_4bit_0_oLEDs;
   wire num_capture_4bit_0_oWe;
 
@@ -62,6 +68,8 @@ module design_1
   assign i_Switch_0_1 = iPush;
   assign i_Switch_0_2 = iStop;
   assign oBlue[3:0] = VGA_patterns_0_oBlue;
+  assign oDebug1[2:0] = num_capture_4bit_0_oDebug1;
+  assign oDebug2[2:0] = num_capture_4bit_0_oDebug2;
   assign oGreen[3:0] = VGA_patterns_0_oGreen;
   assign oHS = VGA_patterns_0_oHS;
   assign oLEDs[3:0] = num_capture_4bit_0_oLEDs;
@@ -119,6 +127,8 @@ module design_1
         .iStop(Debounce_Switch_1_o_Switch),
         .oAddr(num_capture_4bit_0_oAddr),
         .oData(num_capture_4bit_0_oData),
+        .oDebug1(num_capture_4bit_0_oDebug1),
+        .oDebug2(num_capture_4bit_0_oDebug2),
         .oLEDs(num_capture_4bit_0_oLEDs),
         .oWe(num_capture_4bit_0_oWe));
 endmodule
