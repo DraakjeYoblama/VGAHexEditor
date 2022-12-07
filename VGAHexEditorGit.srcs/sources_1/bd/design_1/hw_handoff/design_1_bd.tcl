@@ -294,9 +294,8 @@ proc create_root_design { parentCell } {
   connect_bd_net -net i_Switch_0_2 [get_bd_ports iStop] [get_bd_pins Debounce_Switch_1/i_Switch]
   connect_bd_net -net num_capture_4bit_0_oAddr [get_bd_pins ScreenBufferMem_0/iAddrB] [get_bd_pins num_capture_4bit_0/oAddr]
   connect_bd_net -net num_capture_4bit_0_oData [get_bd_pins ScreenBufferMem_0/iDataB] [get_bd_pins num_capture_4bit_0/oData]
-  connect_bd_net -net num_capture_4bit_0_oDebug1 [get_bd_ports oDebug1] [get_bd_pins num_capture_4bit_0/oDebug1]
-  connect_bd_net -net num_capture_4bit_0_oDebug2 [get_bd_ports oDebug2] [get_bd_pins num_capture_4bit_0/oDebug2]
-  connect_bd_net -net num_capture_4bit_0_oLEDs [get_bd_ports oLEDs] [get_bd_pins num_capture_4bit_0/oLEDs]
+  connect_bd_net -net num_capture_4bit_0_oDebug1 [get_bd_ports oDebug1]
+  connect_bd_net -net num_capture_4bit_0_oDebug2 [get_bd_ports oDebug2]
   connect_bd_net -net num_capture_4bit_0_oWe [get_bd_pins ScreenBufferMem_0/iWeB] [get_bd_pins num_capture_4bit_0/oWe]
 
   # Create address segments

@@ -62,9 +62,7 @@ module design_1_num_capture_4bit_0_0 (
   oLEDs,
   oAddr,
   oData,
-  oWe,
-  oDebug1,
-  oDebug2
+  oWe
 );
 
 input wire iClk;
@@ -75,8 +73,6 @@ output wire [3 : 0] oLEDs;
 output wire [9 : 0] oAddr;
 output wire [11 : 0] oData;
 output wire oWe;
-output wire [2 : 0] oDebug1;
-output wire [2 : 0] oDebug2;
 
   num_capture_4bit inst (
     .iClk(iClk),
@@ -86,8 +82,6 @@ output wire [2 : 0] oDebug2;
     .oLEDs(oLEDs),
     .oAddr(oAddr),
     .oData(oData),
-    .oWe(oWe),
-    .oDebug1(oDebug1),
-    .oDebug2(oDebug2)
+    .oWe(oWe)
   );
 endmodule

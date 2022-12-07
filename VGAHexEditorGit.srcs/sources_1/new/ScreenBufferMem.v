@@ -18,7 +18,7 @@ module ScreenBufferMem #(
   // Initial contents of the memory
   initial
   begin
-    $readmemb("hello_world.mem", rMem);
+    $readmemb("empty.mem", rMem);
   end
   
   // Logic for Port A
