@@ -1,5 +1,5 @@
-set_property SRC_FILE_INFO {cfile:c:/Vivado/GitHub/VGAHexEditor/VGAHexEditorGit.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc rfile:../../../VGAHexEditorGit.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc id:1 order:EARLY scoped_inst:design_1_i/clk_wiz_0} [current_design]
-set_property SRC_FILE_INFO {cfile:{C:/Vivado/GitHub/VGAHexEditor/VGAHexEditorGit.srcs/constrs_1/imports/Tijdelijk/PYNQ-Z2 v1.0.xdc} rfile:{../../../VGAHexEditorGit.srcs/constrs_1/imports/Tijdelijk/PYNQ-Z2 v1.0.xdc} id:2} [current_design]
+set_property SRC_FILE_INFO {cfile:{c:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc} rfile:../../../VGAHexEditorGit.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc id:1 order:EARLY scoped_inst:design_1_i/clk_wiz_0} [current_design]
+set_property SRC_FILE_INFO {cfile:{C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/constrs_1/imports/Tijdelijk/PYNQ-Z2 v1.0.xdc} rfile:{../../../VGAHexEditorGit.srcs/constrs_1/imports/Tijdelijk/PYNQ-Z2 v1.0.xdc} id:2} [current_design]
 current_instance design_1_i/clk_wiz_0
 set_property src_info {type:SCOPED_XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 create_clock -period 8.000 [get_ports -no_traverse {}]

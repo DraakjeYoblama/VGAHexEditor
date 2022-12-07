@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec  6 15:34:27 2022" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec  7 23:01:23 2022" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -51,21 +51,9 @@
         <CONNECTION INSTANCE="Debounce_Switch_1" PORT="i_Switch"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="3" NAME="oLEDs" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oLEDs">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="num_capture_4bit_0" PORT="oLEDs"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="2" NAME="oDebug1" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oDebug1">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="num_capture_4bit_0" PORT="oDebug1"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="2" NAME="oDebug2" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oDebug2">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="num_capture_4bit_0" PORT="oDebug2"/>
-      </CONNECTIONS>
-    </PORT>
+    <PORT DIR="O" LEFT="2" NAME="oDebug1" RIGHT="0" SIGIS="undef"/>
+    <PORT DIR="O" LEFT="2" NAME="oDebug2" RIGHT="0" SIGIS="undef"/>
+    <PORT DIR="O" LEFT="3" NAME="oLEDs" RIGHT="0" SIGIS="undef"/>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES/>
@@ -924,11 +912,11 @@
         <PORT CLKFREQUENCY="25000000" DIR="O" NAME="clk_out1" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="VGA_patterns_0" PORT="iClk"/>
-            <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iClk"/>
             <CONNECTION INSTANCE="VGA_timings_0" PORT="iClk"/>
             <CONNECTION INSTANCE="AsciiCharsMem_0" PORT="iClk"/>
             <CONNECTION INSTANCE="Debounce_Switch_0" PORT="i_Clk"/>
             <CONNECTION INSTANCE="Debounce_Switch_1" PORT="i_Clk"/>
+            <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iClk"/>
             <CONNECTION INSTANCE="num_capture_4bit_0" PORT="iClk"/>
           </CONNECTIONS>
         </PORT>
@@ -962,11 +950,7 @@
             <CONNECTION INSTANCE="Debounce_Switch_1" PORT="o_Switch"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="oLEDs" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oLEDs">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="oLEDs"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="oLEDs" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="9" NAME="oAddr" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oAddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iAddrB"/>
@@ -980,16 +964,6 @@
         <PORT DIR="O" NAME="oWe" SIGIS="undef" SIGNAME="num_capture_4bit_0_oWe">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iWeB"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="oDebug1" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oDebug1">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="oDebug1"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="oDebug2" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oDebug2">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="oDebug2"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

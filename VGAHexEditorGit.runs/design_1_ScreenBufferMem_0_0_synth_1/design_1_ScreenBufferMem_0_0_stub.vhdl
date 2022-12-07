@@ -1,8 +1,8 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
--- Date        : Tue Dec  6 14:19:33 2022
--- Host        : LAPTOP-LMFK3M5V running 64-bit major release  (build 9200)
+-- Date        : Wed Dec  7 22:22:17 2022
+-- Host        : Omen-17 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_ScreenBufferMem_0_0_stub.vhdl
 -- Design      : design_1_ScreenBufferMem_0_0

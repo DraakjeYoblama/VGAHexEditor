@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Vivado/GitHub/VGAHexEditor/VGAHexEditorGit.runs/impl_1/design_1_wrapper.tcl"
+  variable script "C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.runs/impl_1/design_1_wrapper.tcl"
   variable category "vivado_impl"
 }
 
@@ -114,9 +114,8 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
 OPTRACE "Implementation" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -124,8 +123,7 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 2
-  set_param synth.incrementalSynthesisCache C:/Users/Pieter/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-15968-LAPTOP-LMFK3M5V/incrSyn
+  set_param chipscope.maxJobs 4
   set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7z020clg400-1
@@ -134,20 +132,20 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir C:/Vivado/GitHub/VGAHexEditor/VGAHexEditorGit.cache/wt [current_project]
-  set_property parent.project_path C:/Vivado/GitHub/VGAHexEditor/VGAHexEditorGit.xpr [current_project]
-  set_property ip_output_repo C:/Vivado/GitHub/VGAHexEditor/VGAHexEditorGit.cache/ip [current_project]
+  set_property webtalk.parent_dir {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.cache/wt} [current_project]
+  set_property parent.project_path {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.xpr} [current_project]
+  set_property ip_output_repo {{C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.cache/ip}} [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet C:/Vivado/GitHub/VGAHexEditor/VGAHexEditorGit.runs/synth_1/design_1_wrapper.dcp
+  add_files -quiet {{C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.runs/synth_1/design_1_wrapper.dcp}}
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
-  add_files C:/Vivado/GitHub/VGAHexEditor/VGAHexEditorGit.srcs/sources_1/bd/design_1/design_1.bd
+  add_files {{C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/bd/design_1/design_1.bd}}
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
-  read_xdc {{C:/Vivado/GitHub/VGAHexEditor/VGAHexEditorGit.srcs/constrs_1/imports/Tijdelijk/PYNQ-Z2 v1.0.xdc}}
+  read_xdc {{C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/constrs_1/imports/Tijdelijk/PYNQ-Z2 v1.0.xdc}}
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
