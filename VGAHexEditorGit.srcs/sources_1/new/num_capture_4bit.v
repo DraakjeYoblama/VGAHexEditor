@@ -22,7 +22,7 @@
 
 
 module num_capture_4bit(
-    input wire iClk, iRst, iPush, iStop,
+    input wire iClk, iRst, iPush, iStop, iBtn, iSw0, iSw1,
     output wire [3:0] oLEDs,
     output wire[9:0] oAddr,
     output wire[11:0] oData,
@@ -39,7 +39,7 @@ module num_capture_4bit(
 
    
     //define internal register for current and next FSM states and 4-bit numbers
-    reg[2:0] rFSM_Curr, rFSM_Next;
+    reg[3:0] rFSM_Curr, rFSM_Next;
     reg[3:0] rCurrNum, rNextNum;
     
     //part 1:state register with reset logic

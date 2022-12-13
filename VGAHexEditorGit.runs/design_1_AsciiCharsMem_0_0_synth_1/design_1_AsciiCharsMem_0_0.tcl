@@ -93,6 +93,7 @@ read_mem {
   {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/image.mem}
   {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/chars.mem}
   {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/hello_world.mem}
+  {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/empty.mem}
 }
 read_verilog -library xil_defaultlib {{C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/AsciiCharsMem.v}}
 read_ip -quiet {{C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/bd/design_1/ip/design_1_AsciiCharsMem_0_0/design_1_AsciiCharsMem_0_0.xci}}
