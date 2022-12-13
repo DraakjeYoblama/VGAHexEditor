@@ -7,7 +7,7 @@
 ‎  | SW1 == 0 | SW1 == 1 
 --- | --- | ---  
 **SW0 == 0** | go forward 1 block  | next line 
-**SW0 == 1** | go back 1 block | / 
+**SW0 == 1** | go back 1 block | next line  
 
 **Button 2** `(iSpace)` → type space
 
