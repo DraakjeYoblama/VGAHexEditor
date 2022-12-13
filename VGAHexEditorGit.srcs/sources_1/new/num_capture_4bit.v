@@ -32,15 +32,19 @@ module num_capture_4bit(
     //state definitions
     localparam sRst = 0;
     localparam sIdle = 1;
+    
     localparam sPushNumb = 2;
     localparam sIncNumb = 3;
-    localparam sPushDsply = 4;
-    localparam sIncDsply = 5;
-    localparam sDecDsply = 6;
-    localparam sPushLine = 7;
-    localparam sIncLine = 8;
+    
+    localparam sPushMove = 4;
+    localparam sIncMove = 5;
+    localparam sDecMove = 6;
+    localparam sLineMove = 7;
+    
     localparam sPushSpace = 9;
     localparam sIncSpace = 10;
+    localparam sDecSpace = 11;
+    localparam sLineSpace = 12;
 
    
     //define internal register for current and next FSM states and 4-bit numbers
@@ -65,14 +69,14 @@ module num_capture_4bit(
                 rFSM_Next <= sIdle;
                 end
             sIdle: begin
-                if(iMove == 1 && iSw1 == 0)
-                    rFSM_Next <= sPushDsply;
-                else if (iMove == 1 && iSw1 == 1)
-                    rFSM_Next <= sPushLine;      
-                else if(iIncr == 1)
+                if(iIncr == 1)
                     rFSM_Next <= sPushNumb;
+                else if(iMove == 1)
+                    rFSM_Next <= sPushMove;     
                 else if (iSpace == 1)
                     rFSM_Next <= sPushSpace;
+                /*else if (iRst == 1)
+                    rFSM_Next <= sRst; */
                 else
                     rFSM_Next <= sIdle;
                 end
@@ -85,38 +89,48 @@ module num_capture_4bit(
             sIncNumb: begin
                 rFSM_Next <= sIdle;
                 end
-            sPushDsply: begin
-                if(iMove == 0 && iSw0 == 0)
-                    rFSM_Next <= sIncDsply;
-                else if(iMove == 0 && iSw0 == 1)
-                    rFSM_Next <= sDecDsply;
+            sPushMove: begin
+                if(iMove == 0 && iSw0 == 0 && iSw1 == 0)
+                    rFSM_Next <= sIncMove;
+                else if(iMove == 0 && iSw0 == 1 && iSw1 == 0)
+                    rFSM_Next <= sDecMove;
+                else if(iMove == 0 && iSw0 == 0 && iSw1 == 1)
+                    rFSM_Next <= sLineMove;
+                else if(iMove == 0 && iSw0 == 1 && iSw1 == 1)
+                    rFSM_Next <= sLineMove;
                 else                   
-                    rFSM_Next <= sPushDsply;
+                    rFSM_Next <= sPushMove;
                 end
-            sIncDsply: begin
+            sIncMove: begin
                 rFSM_Next <= sIdle;
                 end     
-            sDecDsply: begin
+            sDecMove: begin
                 rFSM_Next <= sIdle;
                 end    
-            sPushLine: begin
-                if (iMove == 0)
-                    rFSM_Next <= sIncLine;
-                else
-                    rFSM_Next <= sPushLine;
-                end
-            sIncLine: begin
+            sLineMove: begin
                 rFSM_Next <= sIdle;
                 end   
             sPushSpace: begin
-                if (iSpace == 0) 
+                if (iSpace == 0 && iSw0 == 0 && iSw1 == 0)
                     rFSM_Next <= sIncSpace;
+                else if (iSpace == 0 && iSw0 == 1 && iSw1 == 0)
+                    rFSM_Next <= sDecSpace;
+                else if (iSpace == 0 && iSw0 == 0 && iSw1 == 1)
+                    rFSM_Next <= sLineSpace;
+                else if (iSpace == 0 && iSw0 == 1 && iSw1 == 1)
+                    rFSM_Next <= sLineSpace;
                 else
                     rFSM_Next <= sPushSpace;
                 end
             sIncSpace: begin
                 rFSM_Next <= sIdle;
-                end     
+                end  
+            sDecSpace: begin  
+                rFSM_Next <= sIdle; 
+                end
+            sLineSpace: begin
+                rFSM_Next <= sIdle;
+                end
             default: begin
                 rFSM_Next <= sRst;
                 end
@@ -142,7 +156,7 @@ module num_capture_4bit(
         end else begin
             rNextNum = rCurrNum;
         end
-        if(rFSM_Curr == sIncSpace || rFSM_Curr == sPushSpace)
+        if(rFSM_Curr == sPushSpace || rFSM_Curr == sIncSpace || rFSM_Curr == sDecSpace || rFSM_Curr == sLineSpace)
            rData = 000000000000;
         else
            rData =  (rCurrNum <= 9)? (512+32*rCurrNum) : (1056 + 32*(rCurrNum-10));
@@ -157,9 +171,9 @@ module num_capture_4bit(
    
      
      always @(posedge iClk) begin
-        if (rFSM_Curr == sIncDsply || rFSM_Curr == sIncSpace) begin 
+        if (rFSM_Curr == sIncMove || rFSM_Curr == sIncSpace) begin 
             rNextAddrHori = rCurrAddrHori + 1;
-        end else if (rFSM_Curr == sIncLine) begin
+        end else if (rFSM_Curr == sLineMove  || rFSM_Curr == sLineSpace) begin
             rNextAddrVert = rCurrAddrVert + 1;
             rNextAddrHori = 0;
         end else if (rCurrAddrHori > 39) begin
@@ -168,13 +182,13 @@ module num_capture_4bit(
         end else if (rCurrAddrVert > 14 || iRst == 1) begin
             rNextAddrVert = 0;
             rNextAddrHori = 0;
-        end else if (rFSM_Curr == sDecDsply && rCurrAddrHori == 0 && rCurrAddrVert ==0) begin
+        end else if ((rFSM_Curr == sDecMove || rFSM_Curr == sDecSpace) && rCurrAddrHori == 0 && rCurrAddrVert ==0) begin
             rNextAddrVert = 0;
             rNextAddrHori = 0;
-        end else if (rFSM_Curr == sDecDsply && rCurrAddrHori == 0) begin
+        end else if ((rFSM_Curr == sDecMove || rFSM_Curr == sDecSpace) && rCurrAddrHori == 0) begin
             rNextAddrVert = rCurrAddrVert -1;
             rNextAddrHori = 39;
-        end else if (rFSM_Curr == sDecDsply) begin
+        end else if (rFSM_Curr == sDecMove || rFSM_Curr == sDecSpace) begin
             rNextAddrHori = rCurrAddrHori - 1;
         end else begin
             rNextAddrHori = rCurrAddrHori;
@@ -184,26 +198,9 @@ module num_capture_4bit(
         rCurrAddrVert <= rNextAddrVert;
      end
      
-     /*
-     reg [9:0] rCurrAddr;
-     reg [9:0] rNextAddr;
-
-     
-     always @(posedge iClk) begin
-        if (rFSM_Curr == sIncDsply) begin 
-            rNextAddr = rCurrAddr + 1;
-        end else if (rCurrAddr > 599) begin
-            rNextAddr = 0;
-        end else begin
-            rNextAddr = rCurrAddr;
-        end
-        rCurrAddr = rNextAddr;
-     end
-    */
-     
+   
      // assigning to outputs
      assign oData = rData;
      assign oAddr = 40*rCurrAddrVert + rCurrAddrHori;
-     //assign oAddr = rCurrAddr;
      assign oWe = 1;
      endmodule
