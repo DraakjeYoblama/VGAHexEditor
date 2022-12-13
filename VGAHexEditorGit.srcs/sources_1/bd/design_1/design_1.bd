@@ -1,12 +1,13 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xD796C33E900B0D9E",
+      "boundary_crc": "0xB61663A4AA2EFB45",
       "device": "xc7z020clg400-1",
       "name": "design_1",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2020.1"
+      "tool_version": "2020.1",
+      "validated": "true"
     },
     "design_tree": {
       "clk_wiz_0": "",
@@ -14,9 +15,9 @@
       "VGA_timings_0": "",
       "Debounce_Switch_0": "",
       "Debounce_Switch_1": "",
-      "ScreenBufferMem_0": "",
       "AsciiCharsMem_0": "",
       "Debounce_Switch_2": "",
+      "ScreenBufferMem_0": "",
       "num_capture_4bit_0": ""
     },
     "ports": {
@@ -43,18 +44,40 @@
       },
       "iClk": {
         "type": "clk",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "design_1_iClk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
       },
       "iRst": {
         "direction": "I"
       },
-      "iPush": {
+      "iIncr": {
         "direction": "I"
       },
-      "iStop": {
+      "iMove": {
         "direction": "I"
       },
-      "iBtn": {
+      "iSpace": {
         "direction": "I"
       },
       "iSw0": {
@@ -114,7 +137,21 @@
         },
         "ports": {
           "iClk": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "iRst": {
             "direction": "I"
@@ -188,7 +225,21 @@
         },
         "ports": {
           "iClk": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "iRst": {
             "direction": "I"
@@ -222,7 +273,21 @@
         "ports": {
           "i_Clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "i_Switch": {
             "direction": "I"
@@ -243,55 +308,27 @@
         "ports": {
           "i_Clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "i_Switch": {
             "direction": "I"
           },
           "o_Switch": {
             "direction": "O"
-          }
-        }
-      },
-      "ScreenBufferMem_0": {
-        "vlnv": "xilinx.com:module_ref:ScreenBufferMem:1.0",
-        "xci_name": "design_1_ScreenBufferMem_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "ScreenBufferMem",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "iClk": {
-            "direction": "I"
-          },
-          "iAddrA": {
-            "direction": "I",
-            "left": "9",
-            "right": "0"
-          },
-          "iAddrB": {
-            "direction": "I",
-            "left": "9",
-            "right": "0"
-          },
-          "iDataB": {
-            "direction": "I",
-            "left": "11",
-            "right": "0"
-          },
-          "iWeB": {
-            "direction": "I"
-          },
-          "oDataA": {
-            "direction": "O",
-            "left": "11",
-            "right": "0"
-          },
-          "oDataB": {
-            "direction": "O",
-            "left": "11",
-            "right": "0"
           }
         }
       },
@@ -305,7 +342,21 @@
         },
         "ports": {
           "iClk": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "iAddr": {
             "direction": "I",
@@ -330,13 +381,86 @@
         "ports": {
           "i_Clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "i_Switch": {
             "direction": "I"
           },
           "o_Switch": {
             "direction": "O"
+          }
+        }
+      },
+      "ScreenBufferMem_0": {
+        "vlnv": "xilinx.com:module_ref:ScreenBufferMem:1.0",
+        "xci_name": "design_1_ScreenBufferMem_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ScreenBufferMem",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "iClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "iAddrA": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "iAddrB": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "iDataB": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "iWeB": {
+            "direction": "I"
+          },
+          "iRst": {
+            "direction": "I"
+          },
+          "oDataA": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "oDataB": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
           }
         }
       },
@@ -350,18 +474,32 @@
         },
         "ports": {
           "iClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "iIncr": {
+            "direction": "I"
+          },
+          "iMove": {
+            "direction": "I"
+          },
+          "iSpace": {
             "direction": "I"
           },
           "iRst": {
-            "direction": "I"
-          },
-          "iPush": {
-            "direction": "I"
-          },
-          "iStop": {
-            "direction": "I"
-          },
-          "iBtn": {
             "direction": "I"
           },
           "iSw0": {
@@ -423,9 +561,9 @@
           "VGA_timings_0/iClk",
           "Debounce_Switch_0/i_Clk",
           "Debounce_Switch_1/i_Clk",
-          "ScreenBufferMem_0/iClk",
           "AsciiCharsMem_0/iClk",
           "Debounce_Switch_2/i_Clk",
+          "ScreenBufferMem_0/iClk",
           "num_capture_4bit_0/iClk"
         ]
       },
@@ -476,6 +614,7 @@
           "iRst",
           "VGA_patterns_0/iRst",
           "VGA_timings_0/iRst",
+          "ScreenBufferMem_0/iRst",
           "num_capture_4bit_0/iRst"
         ]
       },
@@ -512,13 +651,13 @@
       "Debounce_Switch_1_o_Switch": {
         "ports": [
           "Debounce_Switch_1/o_Switch",
-          "num_capture_4bit_0/iStop"
+          "num_capture_4bit_0/iMove"
         ]
       },
       "Debounce_Switch_0_o_Switch": {
         "ports": [
           "Debounce_Switch_0/o_Switch",
-          "num_capture_4bit_0/iPush"
+          "num_capture_4bit_0/iIncr"
         ]
       },
       "iClk_1": {
@@ -529,26 +668,26 @@
       },
       "i_Switch_0_1": {
         "ports": [
-          "iPush",
+          "iIncr",
           "Debounce_Switch_0/i_Switch"
         ]
       },
       "i_Switch_0_2": {
         "ports": [
-          "iStop",
+          "iMove",
           "Debounce_Switch_1/i_Switch"
         ]
       },
       "i_Switch_0_3": {
         "ports": [
-          "iBtn",
+          "iSpace",
           "Debounce_Switch_2/i_Switch"
         ]
       },
       "Debounce_Switch_2_o_Switch": {
         "ports": [
           "Debounce_Switch_2/o_Switch",
-          "num_capture_4bit_0/iBtn"
+          "num_capture_4bit_0/iSpace"
         ]
       },
       "iSw0_1": {
