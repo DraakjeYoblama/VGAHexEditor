@@ -40,7 +40,7 @@ module VGA_patterns #(
     input wire[$clog2(H_TOT)-1:0] iCountH,
     input wire[$clog2(V_TOT)-1:0] iCountV,
     input wire      iHS, iVS,
-    input wire[11:0] iDataA,
+    input wire[11:0] iDataA, iTextColor, iBgrColor,
     input wire [15:0] iDataB,
     output wire     oHS, oVS,
     output wire[9:0] oAddrA,
@@ -52,9 +52,9 @@ assign oAddrA = (iCountH <= WIDTH && iCountV <= HEIGHT)? ((iCountH / 16) + ((iCo
 
 assign oAddrB = (iCountV % 32) + iDataA;
 
-assign oRed   = (iCountH <= WIDTH && iCountV <= HEIGHT && iDataB[15 -(iCountH%16)] == 1)? 4'd15 : 0;
-assign oGreen = 0; //(iCountH <= WIDTH && iCountV <= HEIGHT)? iDataA[7  : 4] : 0;
-assign oBlue  = 0;//(iCountH <= WIDTH && iCountV <= HEIGHT)? iDataA[3  : 0] : 0;
+assign oRed   = (iCountH <= WIDTH && iCountV <= HEIGHT && iDataB[15 -(iCountH%16)] == 1)? iTextColor[3:0] : iBgrColor[3:0];
+assign oGreen = (iCountH <= WIDTH && iCountV <= HEIGHT && iDataB[15 -(iCountH%16)] == 1)? iTextColor[7:4] : iBgrColor[7:4];
+assign oBlue  = (iCountH <= WIDTH && iCountV <= HEIGHT && iDataB[15 -(iCountH%16)] == 1)? iTextColor[11:8] : iBgrColor[11:8];
 
 
 assign oHS = iHS;

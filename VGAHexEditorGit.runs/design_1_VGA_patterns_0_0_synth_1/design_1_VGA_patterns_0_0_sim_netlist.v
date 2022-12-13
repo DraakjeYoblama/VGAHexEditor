@@ -1,8 +1,8 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Tue Nov 22 13:46:10 2022
-// Host        : LAPTOP-LMFK3M5V running 64-bit major release  (build 9200)
+// Date        : Tue Dec 13 17:27:27 2022
+// Host        : Omen-17 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_VGA_patterns_0_0_sim_netlist.v
 // Design      : design_1_VGA_patterns_0_0
@@ -163,6 +163,8 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
     iHS,
     iVS,
     iDataA,
+    iTextColor,
+    iBgrColor,
     iDataB,
     oHS,
     oVS,
@@ -178,6 +180,8 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   input iHS;
   input iVS;
   input [11:0]iDataA;
+  input [11:0]iTextColor;
+  input [11:0]iBgrColor;
   input [15:0]iDataB;
   output oHS;
   output oVS;
@@ -187,202 +191,173 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   output [3:0]oGreen;
   output [3:0]oBlue;
 
-  wire \<const0> ;
+  wire [11:0]iBgrColor;
   wire [9:0]iCountH;
   wire [9:0]iCountV;
   wire [11:0]iDataA;
   wire [15:0]iDataB;
   wire iHS;
+  wire [11:0]iTextColor;
   wire iVS;
   wire [9:0]oAddrA;
   wire [9:2]oAddrA0;
-  wire [9:7]oAddrA1;
+  wire [9:6]oAddrA1;
   wire \oAddrA[9]_INST_0_i_1_n_0 ;
   wire \oAddrA[9]_INST_0_i_2_n_0 ;
   wire \oAddrA[9]_INST_0_i_4_n_0 ;
   wire \oAddrA[9]_INST_0_i_5_n_0 ;
-  wire \oAddrA[9]_INST_0_i_9_n_0 ;
   wire [11:0]oAddrB;
-  wire [3:3]\^oRed ;
-  wire \oRed[0]_INST_0_i_1_n_0 ;
-  wire \oRed[0]_INST_0_i_2_n_0 ;
-  wire \oRed[0]_INST_0_i_3_n_0 ;
-  wire \oRed[0]_INST_0_i_4_n_0 ;
-  wire \oRed[0]_INST_0_i_5_n_0 ;
-  wire \oRed[0]_INST_0_i_6_n_0 ;
+  wire [3:0]oBlue;
+  wire [3:0]oGreen;
+  wire [3:0]oRed;
+  wire \oRed[3]_INST_0_i_1_n_0 ;
+  wire \oRed[3]_INST_0_i_2_n_0 ;
+  wire \oRed[3]_INST_0_i_3_n_0 ;
+  wire \oRed[3]_INST_0_i_4_n_0 ;
+  wire \oRed[3]_INST_0_i_5_n_0 ;
+  wire \oRed[3]_INST_0_i_6_n_0 ;
+  wire \oRed[3]_INST_0_i_7_n_0 ;
 
-  assign oBlue[3] = \<const0> ;
-  assign oBlue[2] = \<const0> ;
-  assign oBlue[1] = \<const0> ;
-  assign oBlue[0] = \<const0> ;
-  assign oGreen[3] = \<const0> ;
-  assign oGreen[2] = \<const0> ;
-  assign oGreen[1] = \<const0> ;
-  assign oGreen[0] = \<const0> ;
   assign oHS = iHS;
-  assign oRed[3] = \^oRed [3];
-  assign oRed[2] = \^oRed [3];
-  assign oRed[1] = \^oRed [3];
-  assign oRed[0] = \^oRed [3];
   assign oVS = iVS;
-  GND GND
-       (.G(\<const0> ));
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_VGA_patterns inst
-       (.S({oAddrA1,\oAddrA[9]_INST_0_i_9_n_0 }),
+       (.S(oAddrA1),
         .iCountH(iCountH[9:6]),
         .iCountV(iCountV[7:0]),
         .iDataA(iDataA),
         .oAddrA0(oAddrA0),
         .oAddrB(oAddrB));
-  LUT5 #(
-    .INIT(32'h4F000000)) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \oAddrA[0]_INST_0 
-       (.I0(iCountH[8]),
-        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
-        .I2(iCountH[9]),
-        .I3(\oAddrA[9]_INST_0_i_2_n_0 ),
-        .I4(iCountH[4]),
+       (.I0(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I1(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I2(iCountH[4]),
         .O(oAddrA[0]));
-  LUT5 #(
-    .INIT(32'h4F000000)) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \oAddrA[1]_INST_0 
-       (.I0(iCountH[8]),
-        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
-        .I2(iCountH[9]),
-        .I3(\oAddrA[9]_INST_0_i_2_n_0 ),
-        .I4(iCountH[5]),
+       (.I0(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I1(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I2(iCountH[5]),
         .O(oAddrA[1]));
-  LUT5 #(
-    .INIT(32'h4F000000)) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \oAddrA[2]_INST_0 
-       (.I0(iCountH[8]),
-        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
-        .I2(iCountH[9]),
-        .I3(\oAddrA[9]_INST_0_i_2_n_0 ),
-        .I4(oAddrA0[2]),
+       (.I0(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I1(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I2(oAddrA0[2]),
         .O(oAddrA[2]));
-  LUT5 #(
-    .INIT(32'h4F000000)) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \oAddrA[3]_INST_0 
-       (.I0(iCountH[8]),
-        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
-        .I2(iCountH[9]),
-        .I3(\oAddrA[9]_INST_0_i_2_n_0 ),
-        .I4(oAddrA0[3]),
+       (.I0(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I1(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I2(oAddrA0[3]),
         .O(oAddrA[3]));
-  LUT5 #(
-    .INIT(32'h4F000000)) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \oAddrA[4]_INST_0 
-       (.I0(iCountH[8]),
-        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
-        .I2(iCountH[9]),
-        .I3(\oAddrA[9]_INST_0_i_2_n_0 ),
-        .I4(oAddrA0[4]),
+       (.I0(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I1(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I2(oAddrA0[4]),
         .O(oAddrA[4]));
-  LUT5 #(
-    .INIT(32'h4F000000)) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \oAddrA[5]_INST_0 
-       (.I0(iCountH[8]),
-        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
-        .I2(iCountH[9]),
-        .I3(\oAddrA[9]_INST_0_i_2_n_0 ),
-        .I4(oAddrA0[5]),
+       (.I0(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I1(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I2(oAddrA0[5]),
         .O(oAddrA[5]));
-  LUT5 #(
-    .INIT(32'h4F000000)) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \oAddrA[6]_INST_0 
-       (.I0(iCountH[8]),
-        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
-        .I2(iCountH[9]),
-        .I3(\oAddrA[9]_INST_0_i_2_n_0 ),
-        .I4(oAddrA0[6]),
+       (.I0(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I1(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I2(oAddrA0[6]),
         .O(oAddrA[6]));
-  LUT5 #(
-    .INIT(32'h4F000000)) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \oAddrA[7]_INST_0 
-       (.I0(iCountH[8]),
-        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
-        .I2(iCountH[9]),
-        .I3(\oAddrA[9]_INST_0_i_2_n_0 ),
-        .I4(oAddrA0[7]),
+       (.I0(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I1(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I2(oAddrA0[7]),
         .O(oAddrA[7]));
-  LUT5 #(
-    .INIT(32'h4F000000)) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \oAddrA[8]_INST_0 
-       (.I0(iCountH[8]),
-        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
-        .I2(iCountH[9]),
-        .I3(\oAddrA[9]_INST_0_i_2_n_0 ),
-        .I4(oAddrA0[8]),
+       (.I0(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I1(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I2(oAddrA0[8]),
         .O(oAddrA[8]));
-  LUT5 #(
-    .INIT(32'h4F000000)) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \oAddrA[9]_INST_0 
-       (.I0(iCountH[8]),
-        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
-        .I2(iCountH[9]),
-        .I3(\oAddrA[9]_INST_0_i_2_n_0 ),
-        .I4(oAddrA0[9]),
+       (.I0(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I1(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I2(oAddrA0[9]),
         .O(oAddrA[9]));
   LUT6 #(
-    .INIT(64'h00000001FFFFFFFF)) 
+    .INIT(64'h00000000FFFF7FFF)) 
     \oAddrA[9]_INST_0_i_1 
-       (.I0(\oAddrA[9]_INST_0_i_4_n_0 ),
-        .I1(iCountH[4]),
-        .I2(iCountH[3]),
-        .I3(iCountH[6]),
-        .I4(iCountH[5]),
-        .I5(iCountH[7]),
-        .O(\oAddrA[9]_INST_0_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h00000000BFFFFFFF)) 
-    \oAddrA[9]_INST_0_i_2 
-       (.I0(\oAddrA[9]_INST_0_i_5_n_0 ),
+       (.I0(iCountV[6]),
         .I1(iCountV[5]),
-        .I2(iCountV[7]),
-        .I3(iCountV[6]),
-        .I4(iCountV[8]),
+        .I2(iCountV[8]),
+        .I3(iCountV[7]),
+        .I4(\oAddrA[9]_INST_0_i_4_n_0 ),
         .I5(iCountV[9]),
-        .O(\oAddrA[9]_INST_0_i_2_n_0 ));
-  LUT3 #(
-    .INIT(8'hFE)) 
-    \oAddrA[9]_INST_0_i_4 
-       (.I0(iCountH[1]),
+        .O(\oAddrA[9]_INST_0_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h0155FFFF)) 
+    \oAddrA[9]_INST_0_i_2 
+       (.I0(iCountH[8]),
         .I1(iCountH[0]),
-        .I2(iCountH[2]),
-        .O(\oAddrA[9]_INST_0_i_4_n_0 ));
+        .I2(\oAddrA[9]_INST_0_i_5_n_0 ),
+        .I3(iCountH[7]),
+        .I4(iCountH[9]),
+        .O(\oAddrA[9]_INST_0_i_2_n_0 ));
   LUT5 #(
     .INIT(32'h00000001)) 
+    \oAddrA[9]_INST_0_i_4 
+       (.I0(iCountV[3]),
+        .I1(iCountV[4]),
+        .I2(iCountV[1]),
+        .I3(iCountV[2]),
+        .I4(iCountV[0]),
+        .O(\oAddrA[9]_INST_0_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
     \oAddrA[9]_INST_0_i_5 
-       (.I0(iCountV[0]),
-        .I1(iCountV[1]),
-        .I2(iCountV[2]),
-        .I3(iCountV[4]),
-        .I4(iCountV[3]),
+       (.I0(iCountH[2]),
+        .I1(iCountH[1]),
+        .I2(iCountH[5]),
+        .I3(iCountH[6]),
+        .I4(iCountH[3]),
+        .I5(iCountH[4]),
         .O(\oAddrA[9]_INST_0_i_5_n_0 ));
   LUT5 #(
-    .INIT(32'h555FA800)) 
+    .INIT(32'h0F5FA080)) 
     \oAddrA[9]_INST_0_i_6 
-       (.I0(iCountV[8]),
+       (.I0(iCountV[7]),
         .I1(iCountV[5]),
-        .I2(iCountV[6]),
-        .I3(iCountV[7]),
+        .I2(iCountV[8]),
+        .I3(iCountV[6]),
         .I4(iCountV[9]),
         .O(oAddrA1[9]));
   LUT5 #(
-    .INIT(32'h1317C888)) 
+    .INIT(32'h015FF800)) 
     \oAddrA[9]_INST_0_i_7 
-       (.I0(iCountV[9]),
-        .I1(iCountV[7]),
-        .I2(iCountV[6]),
-        .I3(iCountV[5]),
+       (.I0(iCountV[6]),
+        .I1(iCountV[5]),
+        .I2(iCountV[9]),
+        .I3(iCountV[7]),
         .I4(iCountV[8]),
         .O(oAddrA1[8]));
   LUT5 #(
-    .INIT(32'hE85F17A0)) 
+    .INIT(32'hE83F17C0)) 
     \oAddrA[9]_INST_0_i_8 
-       (.I0(iCountV[8]),
-        .I1(iCountV[5]),
+       (.I0(iCountV[5]),
+        .I1(iCountV[8]),
         .I2(iCountV[6]),
         .I3(iCountV[7]),
         .I4(iCountV[9]),
@@ -390,81 +365,186 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   LUT4 #(
     .INIT(16'h8778)) 
     \oAddrA[9]_INST_0_i_9 
-       (.I0(iCountV[5]),
-        .I1(iCountV[7]),
+       (.I0(iCountV[7]),
+        .I1(iCountV[5]),
         .I2(iCountV[6]),
         .I3(iCountV[8]),
-        .O(\oAddrA[9]_INST_0_i_9_n_0 ));
-  LUT6 #(
-    .INIT(64'h0C0CCC0C08088808)) 
+        .O(oAddrA1[6]));
+  LUT5 #(
+    .INIT(32'hBFFF8000)) 
+    \oBlue[0]_INST_0 
+       (.I0(iTextColor[8]),
+        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I2(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I3(\oRed[3]_INST_0_i_1_n_0 ),
+        .I4(iBgrColor[8]),
+        .O(oBlue[0]));
+  LUT5 #(
+    .INIT(32'hBFFF8000)) 
+    \oBlue[1]_INST_0 
+       (.I0(iTextColor[9]),
+        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I2(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I3(\oRed[3]_INST_0_i_1_n_0 ),
+        .I4(iBgrColor[9]),
+        .O(oBlue[1]));
+  LUT5 #(
+    .INIT(32'hBFFF8000)) 
+    \oBlue[2]_INST_0 
+       (.I0(iTextColor[10]),
+        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I2(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I3(\oRed[3]_INST_0_i_1_n_0 ),
+        .I4(iBgrColor[10]),
+        .O(oBlue[2]));
+  LUT5 #(
+    .INIT(32'hBFFF8000)) 
+    \oBlue[3]_INST_0 
+       (.I0(iTextColor[11]),
+        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I2(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I3(\oRed[3]_INST_0_i_1_n_0 ),
+        .I4(iBgrColor[11]),
+        .O(oBlue[3]));
+  LUT5 #(
+    .INIT(32'hBFFF8000)) 
+    \oGreen[0]_INST_0 
+       (.I0(iTextColor[4]),
+        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I2(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I3(\oRed[3]_INST_0_i_1_n_0 ),
+        .I4(iBgrColor[4]),
+        .O(oGreen[0]));
+  LUT5 #(
+    .INIT(32'hBFFF8000)) 
+    \oGreen[1]_INST_0 
+       (.I0(iTextColor[5]),
+        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I2(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I3(\oRed[3]_INST_0_i_1_n_0 ),
+        .I4(iBgrColor[5]),
+        .O(oGreen[1]));
+  LUT5 #(
+    .INIT(32'hBFFF8000)) 
+    \oGreen[2]_INST_0 
+       (.I0(iTextColor[6]),
+        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I2(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I3(\oRed[3]_INST_0_i_1_n_0 ),
+        .I4(iBgrColor[6]),
+        .O(oGreen[2]));
+  LUT5 #(
+    .INIT(32'hBFFF8000)) 
+    \oGreen[3]_INST_0 
+       (.I0(iTextColor[7]),
+        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I2(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I3(\oRed[3]_INST_0_i_1_n_0 ),
+        .I4(iBgrColor[7]),
+        .O(oGreen[3]));
+  LUT5 #(
+    .INIT(32'hBFFF8000)) 
     \oRed[0]_INST_0 
-       (.I0(\oRed[0]_INST_0_i_1_n_0 ),
-        .I1(\oAddrA[9]_INST_0_i_2_n_0 ),
-        .I2(iCountH[9]),
-        .I3(\oAddrA[9]_INST_0_i_1_n_0 ),
-        .I4(iCountH[8]),
-        .I5(\oRed[0]_INST_0_i_2_n_0 ),
-        .O(\^oRed ));
+       (.I0(iTextColor[0]),
+        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I2(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I3(\oRed[3]_INST_0_i_1_n_0 ),
+        .I4(iBgrColor[0]),
+        .O(oRed[0]));
+  LUT5 #(
+    .INIT(32'hBFFF8000)) 
+    \oRed[1]_INST_0 
+       (.I0(iTextColor[1]),
+        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I2(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I3(\oRed[3]_INST_0_i_1_n_0 ),
+        .I4(iBgrColor[1]),
+        .O(oRed[1]));
+  LUT5 #(
+    .INIT(32'hBFFF8000)) 
+    \oRed[2]_INST_0 
+       (.I0(iTextColor[2]),
+        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I2(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I3(\oRed[3]_INST_0_i_1_n_0 ),
+        .I4(iBgrColor[2]),
+        .O(oRed[2]));
+  LUT5 #(
+    .INIT(32'hBFFF8000)) 
+    \oRed[3]_INST_0 
+       (.I0(iTextColor[3]),
+        .I1(\oAddrA[9]_INST_0_i_1_n_0 ),
+        .I2(\oAddrA[9]_INST_0_i_2_n_0 ),
+        .I3(\oRed[3]_INST_0_i_1_n_0 ),
+        .I4(iBgrColor[3]),
+        .O(oRed[3]));
   LUT6 #(
-    .INIT(64'h0A0A0A0C0C0C0CA0)) 
-    \oRed[0]_INST_0_i_1 
-       (.I0(\oRed[0]_INST_0_i_3_n_0 ),
-        .I1(\oRed[0]_INST_0_i_4_n_0 ),
-        .I2(iCountH[3]),
-        .I3(iCountH[1]),
-        .I4(iCountH[0]),
-        .I5(iCountH[2]),
-        .O(\oRed[0]_INST_0_i_1_n_0 ));
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \oRed[3]_INST_0_i_1 
+       (.I0(\oRed[3]_INST_0_i_2_n_0 ),
+        .I1(\oRed[3]_INST_0_i_3_n_0 ),
+        .I2(\oRed[3]_INST_0_i_4_n_0 ),
+        .I3(\oRed[3]_INST_0_i_5_n_0 ),
+        .I4(\oRed[3]_INST_0_i_6_n_0 ),
+        .I5(\oRed[3]_INST_0_i_7_n_0 ),
+        .O(\oRed[3]_INST_0_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hA0A0A0C0C0C0C00A)) 
-    \oRed[0]_INST_0_i_2 
-       (.I0(\oRed[0]_INST_0_i_5_n_0 ),
-        .I1(\oRed[0]_INST_0_i_6_n_0 ),
-        .I2(iCountH[3]),
-        .I3(iCountH[1]),
-        .I4(iCountH[0]),
-        .I5(iCountH[2]),
-        .O(\oRed[0]_INST_0_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'hAFCFAFC0A0CFA0C0)) 
-    \oRed[0]_INST_0_i_3 
-       (.I0(iDataB[8]),
-        .I1(iDataB[10]),
-        .I2(iCountH[0]),
-        .I3(iCountH[1]),
-        .I4(iDataB[7]),
-        .I5(iDataB[9]),
-        .O(\oRed[0]_INST_0_i_3_n_0 ));
-  LUT6 #(
-    .INIT(64'hAFCFAFC0A0CFA0C0)) 
-    \oRed[0]_INST_0_i_4 
-       (.I0(iDataB[12]),
-        .I1(iDataB[14]),
-        .I2(iCountH[0]),
-        .I3(iCountH[1]),
-        .I4(iDataB[11]),
-        .I5(iDataB[13]),
-        .O(\oRed[0]_INST_0_i_4_n_0 ));
-  LUT6 #(
-    .INIT(64'hAFCFAFC0A0CFA0C0)) 
-    \oRed[0]_INST_0_i_5 
+    .INIT(64'hAFFCAF0CA0FCA00C)) 
+    \oRed[3]_INST_0_i_2 
        (.I0(iDataB[0]),
-        .I1(iDataB[2]),
+        .I1(iDataB[15]),
         .I2(iCountH[0]),
         .I3(iCountH[1]),
-        .I4(iDataB[15]),
+        .I4(iDataB[2]),
         .I5(iDataB[1]),
-        .O(\oRed[0]_INST_0_i_5_n_0 ));
+        .O(\oRed[3]_INST_0_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hAFCFAFC0A0CFA0C0)) 
-    \oRed[0]_INST_0_i_6 
+    .INIT(64'hAFFCAF0CA0FCA00C)) 
+    \oRed[3]_INST_0_i_3 
        (.I0(iDataB[4]),
-        .I1(iDataB[6]),
+        .I1(iDataB[3]),
         .I2(iCountH[0]),
         .I3(iCountH[1]),
-        .I4(iDataB[3]),
+        .I4(iDataB[6]),
         .I5(iDataB[5]),
-        .O(\oRed[0]_INST_0_i_6_n_0 ));
+        .O(\oRed[3]_INST_0_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT4 #(
+    .INIT(16'hFE01)) 
+    \oRed[3]_INST_0_i_4 
+       (.I0(iCountH[2]),
+        .I1(iCountH[0]),
+        .I2(iCountH[1]),
+        .I3(iCountH[3]),
+        .O(\oRed[3]_INST_0_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFFCAF0CA0FCA00C)) 
+    \oRed[3]_INST_0_i_5 
+       (.I0(iDataB[8]),
+        .I1(iDataB[7]),
+        .I2(iCountH[0]),
+        .I3(iCountH[1]),
+        .I4(iDataB[10]),
+        .I5(iDataB[9]),
+        .O(\oRed[3]_INST_0_i_5_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT3 #(
+    .INIT(8'hE1)) 
+    \oRed[3]_INST_0_i_6 
+       (.I0(iCountH[1]),
+        .I1(iCountH[0]),
+        .I2(iCountH[2]),
+        .O(\oRed[3]_INST_0_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFFCAF0CA0FCA00C)) 
+    \oRed[3]_INST_0_i_7 
+       (.I0(iDataB[12]),
+        .I1(iDataB[11]),
+        .I2(iCountH[0]),
+        .I3(iCountH[1]),
+        .I4(iDataB[14]),
+        .I5(iDataB[13]),
+        .O(\oRed[3]_INST_0_i_7_n_0 ));
 endmodule
 `ifndef GLBL
 `define GLBL

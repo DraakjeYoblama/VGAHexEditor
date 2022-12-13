@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 13 12:49:07 2022" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 13 17:52:03 2022" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -36,9 +36,9 @@
     </PORT>
     <PORT DIR="I" NAME="iRst" SIGIS="undef" SIGNAME="External_Ports_iRst">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="VGA_patterns_0" PORT="iRst"/>
         <CONNECTION INSTANCE="VGA_timings_0" PORT="iRst"/>
         <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iRst"/>
+        <CONNECTION INSTANCE="VGA_patterns_0" PORT="iRst"/>
         <CONNECTION INSTANCE="num_capture_4bit_0" PORT="iRst"/>
       </CONNECTIONS>
     </PORT>
@@ -275,6 +275,16 @@
         <PORT DIR="I" LEFT="11" NAME="iDataA" RIGHT="0" SIGIS="undef" SIGNAME="ScreenBufferMem_0_oDataA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="oDataA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="iTextColor" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oTextColor">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="num_capture_4bit_0" PORT="oTextColor"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="iBgrColor" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oBgrColor">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="num_capture_4bit_0" PORT="oBgrColor"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="iDataB" RIGHT="0" SIGIS="undef" SIGNAME="AsciiCharsMem_0_oData">
@@ -955,13 +965,13 @@
         </PORT>
         <PORT CLKFREQUENCY="25000000" DIR="O" NAME="clk_out1" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="VGA_patterns_0" PORT="iClk"/>
             <CONNECTION INSTANCE="VGA_timings_0" PORT="iClk"/>
             <CONNECTION INSTANCE="Debounce_Switch_0" PORT="i_Clk"/>
             <CONNECTION INSTANCE="Debounce_Switch_1" PORT="i_Clk"/>
             <CONNECTION INSTANCE="AsciiCharsMem_0" PORT="iClk"/>
             <CONNECTION INSTANCE="Debounce_Switch_2" PORT="i_Clk"/>
             <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iClk"/>
+            <CONNECTION INSTANCE="VGA_patterns_0" PORT="iClk"/>
             <CONNECTION INSTANCE="num_capture_4bit_0" PORT="iClk"/>
           </CONNECTIONS>
         </PORT>
@@ -1010,7 +1020,6 @@
             <CONNECTION INSTANCE="External_Ports" PORT="iSw1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="oLEDs" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="9" NAME="oAddr" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oAddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iAddrB"/>
@@ -1019,6 +1028,16 @@
         <PORT DIR="O" LEFT="11" NAME="oData" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oData">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iDataB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="11" NAME="oTextColor" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oTextColor">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="VGA_patterns_0" PORT="iTextColor"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="11" NAME="oBgrColor" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oBgrColor">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="VGA_patterns_0" PORT="iBgrColor"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="oWe" SIGIS="undef" SIGNAME="num_capture_4bit_0_oWe">

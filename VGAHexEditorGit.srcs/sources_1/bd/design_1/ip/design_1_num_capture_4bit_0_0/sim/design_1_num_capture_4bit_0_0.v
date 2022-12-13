@@ -62,9 +62,10 @@ module design_1_num_capture_4bit_0_0 (
   iRst,
   iSw0,
   iSw1,
-  oLEDs,
   oAddr,
   oData,
+  oTextColor,
+  oBgrColor,
   oWe
 );
 
@@ -75,9 +76,10 @@ input wire iSpace;
 input wire iRst;
 input wire iSw0;
 input wire iSw1;
-output wire [3 : 0] oLEDs;
 output wire [9 : 0] oAddr;
 output wire [11 : 0] oData;
+output wire [11 : 0] oTextColor;
+output wire [11 : 0] oBgrColor;
 output wire oWe;
 
   num_capture_4bit inst (
@@ -88,9 +90,10 @@ output wire oWe;
     .iRst(iRst),
     .iSw0(iSw0),
     .iSw1(iSw1),
-    .oLEDs(oLEDs),
     .oAddr(oAddr),
     .oData(oData),
+    .oTextColor(oTextColor),
+    .oBgrColor(oBgrColor),
     .oWe(oWe)
   );
 endmodule
