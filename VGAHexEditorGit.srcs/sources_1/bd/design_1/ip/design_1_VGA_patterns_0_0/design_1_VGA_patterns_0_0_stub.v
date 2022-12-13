@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Tue Nov 22 13:46:10 2022
-// Host        : LAPTOP-LMFK3M5V running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/Vivado/VGAcontrollerTXT/VGAcontrollerTXT.srcs/sources_1/bd/design_1/ip/design_1_VGA_patterns_0_0/design_1_VGA_patterns_0_0_stub.v
+// Date        : Tue Dec 13 17:27:27 2022
+// Host        : Omen-17 running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode synth_stub {c:/Users/douwe/Documents/Vivado
+//               Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/bd/design_1/ip/design_1_VGA_patterns_0_0/design_1_VGA_patterns_0_0_stub.v}
 // Design      : design_1_VGA_patterns_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg400-1
@@ -14,9 +14,9 @@
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "VGA_patterns,Vivado 2020.1" *)
-module design_1_VGA_patterns_0_0(iClk, iRst, iCountH, iCountV, iHS, iVS, iDataA, iDataB, 
-  oHS, oVS, oAddrA, oAddrB, oRed, oGreen, oBlue)
-/* synthesis syn_black_box black_box_pad_pin="iClk,iRst,iCountH[9:0],iCountV[9:0],iHS,iVS,iDataA[11:0],iDataB[15:0],oHS,oVS,oAddrA[9:0],oAddrB[11:0],oRed[3:0],oGreen[3:0],oBlue[3:0]" */;
+module design_1_VGA_patterns_0_0(iClk, iRst, iCountH, iCountV, iHS, iVS, iDataA, 
+  iTextColor, iBgrColor, iDataB, oHS, oVS, oAddrA, oAddrB, oRed, oGreen, oBlue)
+/* synthesis syn_black_box black_box_pad_pin="iClk,iRst,iCountH[9:0],iCountV[9:0],iHS,iVS,iDataA[11:0],iTextColor[11:0],iBgrColor[11:0],iDataB[15:0],oHS,oVS,oAddrA[9:0],oAddrB[11:0],oRed[3:0],oGreen[3:0],oBlue[3:0]" */;
   input iClk;
   input iRst;
   input [9:0]iCountH;
@@ -24,6 +24,8 @@ module design_1_VGA_patterns_0_0(iClk, iRst, iCountH, iCountV, iHS, iVS, iDataA,
   input iHS;
   input iVS;
   input [11:0]iDataA;
+  input [11:0]iTextColor;
+  input [11:0]iBgrColor;
   input [15:0]iDataB;
   output oHS;
   output oVS;

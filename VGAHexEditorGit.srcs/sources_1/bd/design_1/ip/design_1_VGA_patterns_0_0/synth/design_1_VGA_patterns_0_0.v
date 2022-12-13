@@ -63,6 +63,8 @@ module design_1_VGA_patterns_0_0 (
   iHS,
   iVS,
   iDataA,
+  iTextColor,
+  iBgrColor,
   iDataB,
   oHS,
   oVS,
@@ -80,6 +82,8 @@ input wire [9 : 0] iCountV;
 input wire iHS;
 input wire iVS;
 input wire [11 : 0] iDataA;
+input wire [11 : 0] iTextColor;
+input wire [11 : 0] iBgrColor;
 input wire [15 : 0] iDataB;
 output wire oHS;
 output wire oVS;
@@ -108,6 +112,8 @@ output wire [3 : 0] oBlue;
     .iHS(iHS),
     .iVS(iVS),
     .iDataA(iDataA),
+    .iTextColor(iTextColor),
+    .iBgrColor(iBgrColor),
     .iDataB(iDataB),
     .oHS(oHS),
     .oVS(oVS),

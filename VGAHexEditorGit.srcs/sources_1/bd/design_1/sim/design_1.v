@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-//Date        : Tue Dec 13 12:49:07 2022
+//Date        : Tue Dec 13 17:52:03 2022
 //Host        : Omen-17 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -61,7 +61,9 @@ module design_1
   wire i_Switch_0_2;
   wire i_Switch_0_3;
   wire [9:0]num_capture_4bit_0_oAddr;
+  wire [11:0]num_capture_4bit_0_oBgrColor;
   wire [11:0]num_capture_4bit_0_oData;
+  wire [11:0]num_capture_4bit_0_oTextColor;
   wire num_capture_4bit_0_oWe;
 
   assign iClk_1 = iClk;
@@ -101,13 +103,15 @@ module design_1
         .iWeB(num_capture_4bit_0_oWe),
         .oDataA(ScreenBufferMem_0_oDataA));
   design_1_VGA_patterns_0_0 VGA_patterns_0
-       (.iClk(Net),
+       (.iBgrColor(num_capture_4bit_0_oBgrColor),
+        .iClk(Net),
         .iCountH(VGA_timings_0_oCountH),
         .iCountV(VGA_timings_0_oCountV),
         .iDataA(ScreenBufferMem_0_oDataA),
         .iDataB(AsciiCharsMem_0_oData),
         .iHS(VGA_timings_0_oHS),
         .iRst(iRst_0_1),
+        .iTextColor(num_capture_4bit_0_oTextColor),
         .iVS(VGA_timings_0_oVS),
         .oAddrA(VGA_patterns_0_oAddrA),
         .oAddrB(VGA_patterns_0_oAddrB),
@@ -135,6 +139,8 @@ module design_1
         .iSw0(iSw0_1),
         .iSw1(iSw1_1),
         .oAddr(num_capture_4bit_0_oAddr),
+        .oBgrColor(num_capture_4bit_0_oBgrColor),
         .oData(num_capture_4bit_0_oData),
+        .oTextColor(num_capture_4bit_0_oTextColor),
         .oWe(num_capture_4bit_0_oWe));
 endmodule
