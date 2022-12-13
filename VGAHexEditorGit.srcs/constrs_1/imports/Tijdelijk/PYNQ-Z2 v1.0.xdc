@@ -31,10 +31,10 @@ set_property -dict { PACKAGE_PIN M19   IOSTANDARD LVCMOS33 } [get_ports { iSw1 }
 
 ##Buttons
 
-set_property -dict { PACKAGE_PIN D19   IOSTANDARD LVCMOS33 } [get_ports { iPush }]; #IO_L4P_T0_35 Sch=btn[0]
-set_property -dict { PACKAGE_PIN D20   IOSTANDARD LVCMOS33 } [get_ports { iStop }]; #IO_L4N_T0_35 Sch=btn[1]
-set_property -dict { PACKAGE_PIN L20   IOSTANDARD LVCMOS33 } [get_ports { iRst }]; #IO_L9N_T1_DQS_AD3N_35 Sch=btn[2]
-set_property -dict { PACKAGE_PIN L19   IOSTANDARD LVCMOS33 } [get_ports { iBtn }]; #IO_L9P_T1_DQS_AD3P_35 Sch=btn[3]
+set_property -dict { PACKAGE_PIN D19   IOSTANDARD LVCMOS33 } [get_ports { iIncr }]; #IO_L4P_T0_35 Sch=btn[0]
+set_property -dict { PACKAGE_PIN D20   IOSTANDARD LVCMOS33 } [get_ports { iMove }]; #IO_L4N_T0_35 Sch=btn[1]
+set_property -dict { PACKAGE_PIN L20   IOSTANDARD LVCMOS33 } [get_ports { iSpace }]; #IO_L9N_T1_DQS_AD3N_35 Sch=btn[2]
+set_property -dict { PACKAGE_PIN L19   IOSTANDARD LVCMOS33 } [get_ports { iRst }]; #IO_L9P_T1_DQS_AD3P_35 Sch=btn[3]
 
 ##PmodA
 

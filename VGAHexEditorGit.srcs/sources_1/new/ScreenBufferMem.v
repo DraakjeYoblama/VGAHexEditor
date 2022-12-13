@@ -9,6 +9,7 @@ module ScreenBufferMem #(
   input   wire [$clog2(DEPTH)-1:0]    iAddrA, iAddrB,
   input   wire [WIDTH-1:0]            iDataB,
   input   wire                        iWeB,
+  input   wire                        iRst,
   output  wire [WIDTH-1:0]            oDataA,oDataB
   );
   
@@ -35,14 +36,21 @@ module ScreenBufferMem #(
   // Logic for Port B
   //  Supports synchronous reading and writing
   reg [WIDTH-1:0] rDataB;
-  
+  integer i;
   always @(posedge iClk)
   begin
     if(iWeB)
       rMem[iAddrB] <= iDataB;
+    if(iRst)
+    begin
+      for(i = 0;i <= 599;i = i+1) 
+        rMem[i] = 000000000000;
+    end
     rDataB <= rMem[iAddrB]; 
   end
   
+  
   assign oDataB = rDataB;
+  
   
 endmodule

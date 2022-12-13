@@ -61,6 +61,7 @@ module design_1_ScreenBufferMem_0_0 (
   iAddrB,
   iDataB,
   iWeB,
+  iRst,
   oDataA,
   oDataB
 );
@@ -70,6 +71,7 @@ input wire [9 : 0] iAddrA;
 input wire [9 : 0] iAddrB;
 input wire [11 : 0] iDataB;
 input wire iWeB;
+input wire iRst;
 output wire [11 : 0] oDataA;
 output wire [11 : 0] oDataB;
 
@@ -82,6 +84,7 @@ output wire [11 : 0] oDataB;
     .iAddrB(iAddrB),
     .iDataB(iDataB),
     .iWeB(iWeB),
+    .iRst(iRst),
     .oDataA(oDataA),
     .oDataB(oDataB)
   );
