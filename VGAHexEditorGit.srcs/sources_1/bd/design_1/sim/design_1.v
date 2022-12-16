@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-//Date        : Fri Dec 16 17:49:13 2022
+//Date        : Fri Dec 16 19:27:25 2022
 //Host        : Omen-17 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -63,7 +63,7 @@ module design_1
   wire [9:0]num_capture_4bit_0_oAddr;
   wire [11:0]num_capture_4bit_0_oBgrColor;
   wire [11:0]num_capture_4bit_0_oData;
-  wire num_capture_4bit_0_oFont;
+  wire [1:0]num_capture_4bit_0_oFont;
   wire [11:0]num_capture_4bit_0_oTextColor;
   wire num_capture_4bit_0_oWe;
 

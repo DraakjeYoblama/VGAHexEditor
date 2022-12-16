@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Fri Dec 16 17:49:57 2022
+// Date        : Fri Dec 16 19:28:16 2022
 // Host        : Omen-17 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_AsciiCharsMem_0_0_stub.v
@@ -15,9 +15,9 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "AsciiCharsMem,Vivado 2020.1" *)
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix(iClk, iFont, iAddr, oData)
-/* synthesis syn_black_box black_box_pad_pin="iClk,iFont,iAddr[11:0],oData[15:0]" */;
+/* synthesis syn_black_box black_box_pad_pin="iClk,iFont[1:0],iAddr[11:0],oData[15:0]" */;
   input iClk;
-  input iFont;
+  input [1:0]iFont;
   input [11:0]iAddr;
   output [15:0]oData;
 endmodule

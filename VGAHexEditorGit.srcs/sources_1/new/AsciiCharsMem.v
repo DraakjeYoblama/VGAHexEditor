@@ -5,7 +5,8 @@ module AsciiCharsMem #(
   parameter   DEPTH =  3040
   )
   (
-  input   wire                        iClk, iFont,
+  input   wire                        iClk, 
+  input   wire[1:0]                   iFont,
   input   wire [$clog2(DEPTH)-1:0]    iAddr,
   output  wire [WIDTH-1:0]            oData
   );
@@ -13,6 +14,9 @@ module AsciiCharsMem #(
   // define the memory
   reg [WIDTH-1:0] rMem  [DEPTH-1:0];
   reg [WIDTH-1:0] rMem2  [DEPTH-1:0];
+  reg [WIDTH-1:0] rMem3  [DEPTH-1:0];
+  reg [WIDTH-1:0] rMem4  [DEPTH-1:0];
+  
   
   
   // Initial contents of the memory
@@ -20,6 +24,7 @@ module AsciiCharsMem #(
   begin
   $readmemb("chars.mem", rMem);
   $readmemb("comicsans.mem", rMem2);
+  $readmemb("minecraft.mem", rMem3);  
   end
   
   // Supports only synchronous reading 
@@ -29,6 +34,8 @@ module AsciiCharsMem #(
   begin
     if (iFont == 1) begin
         rData <= rMem2[iAddr]; 
+    end else if (iFont == 2) begin
+        rData <= rMem3[iAddr]; 
     end else begin
         rData <= rMem[iAddr]; 
     end

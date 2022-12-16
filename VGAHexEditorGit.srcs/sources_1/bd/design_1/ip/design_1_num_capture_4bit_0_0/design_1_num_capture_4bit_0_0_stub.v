@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Fri Dec 16 17:32:24 2022
+// Date        : Fri Dec 16 19:09:54 2022
 // Host        : Omen-17 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub {c:/Users/douwe/Documents/Vivado
 //               Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/bd/design_1/ip/design_1_num_capture_4bit_0_0/design_1_num_capture_4bit_0_0_stub.v}
@@ -16,7 +16,7 @@
 (* X_CORE_INFO = "num_capture_4bit,Vivado 2020.1" *)
 module design_1_num_capture_4bit_0_0(iClk, iIncr, iMove, iSpace, iRst, iSw0, iSw1, oAddr, 
   oData, oTextColor, oBgrColor, oFont, oWe)
-/* synthesis syn_black_box black_box_pad_pin="iClk,iIncr,iMove,iSpace,iRst,iSw0,iSw1,oAddr[9:0],oData[11:0],oTextColor[11:0],oBgrColor[11:0],oFont,oWe" */;
+/* synthesis syn_black_box black_box_pad_pin="iClk,iIncr,iMove,iSpace,iRst,iSw0,iSw1,oAddr[9:0],oData[11:0],oTextColor[11:0],oBgrColor[11:0],oFont[1:0],oWe" */;
   input iClk;
   input iIncr;
   input iMove;
@@ -28,6 +28,6 @@ module design_1_num_capture_4bit_0_0(iClk, iIncr, iMove, iSpace, iRst, iSw0, iSw
   output [11:0]oData;
   output [11:0]oTextColor;
   output [11:0]oBgrColor;
-  output oFont;
+  output [1:0]oFont;
   output oWe;
 endmodule

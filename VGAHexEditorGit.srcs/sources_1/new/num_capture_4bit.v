@@ -25,7 +25,8 @@ module num_capture_4bit(
     input wire iClk, iIncr, iMove, iSpace, iRst, iSw0, iSw1,
     output wire[9:0] oAddr,
     output wire[11:0] oData, oTextColor, oBgrColor,
-    output wire oFont, oWe
+    output wire[1:0] oFont,
+    output wire  oWe
     );
     
     //state definitions
@@ -218,7 +219,7 @@ module num_capture_4bit(
 
     // next text and background color logic
     // next font logic
-    reg rCurrFont, rNextFont;
+    reg[1:0] rCurrFont, rNextFont;
     reg[3:0] rCurrTextC, rNextTextC, rCurrBgrC, rNextBgrC;
     reg[11:0] rTextColor, rBgrColor;
     

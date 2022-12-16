@@ -63,7 +63,7 @@ module design_1_AsciiCharsMem_0_0 (
 );
 
 input wire iClk;
-input wire iFont;
+input wire [1 : 0] iFont;
 input wire [11 : 0] iAddr;
 output wire [15 : 0] oData;
 
