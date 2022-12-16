@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date         : Tue Dec 13 17:27:27 2022
+| Date         : Fri Dec 16 15:12:34 2022
 | Host         : Omen-17 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_VGA_patterns_0_0_utilization_synth.rpt -pb design_1_VGA_patterns_0_0_utilization_synth.pb
 | Design       : design_1_VGA_patterns_0_0
@@ -146,12 +146,12 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT5     |   17 |                 LUT |
-| LUT3     |   12 |                 LUT |
-| LUT6     |    7 |                 LUT |
+| LUT6     |   19 |                 LUT |
+| LUT4     |   13 |                 LUT |
 | LUT2     |    7 |                 LUT |
 | CARRY4   |    5 |          CarryLogic |
-| LUT4     |    2 |                 LUT |
+| LUT5     |    4 |                 LUT |
+| LUT3     |    2 |                 LUT |
 +----------+------+---------------------+
 
 

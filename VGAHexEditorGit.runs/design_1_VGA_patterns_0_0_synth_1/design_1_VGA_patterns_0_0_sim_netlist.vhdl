@@ -1,7 +1,7 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
--- Date        : Tue Dec 13 17:27:27 2022
+-- Date        : Fri Dec 16 15:12:34 2022
 -- Host        : Omen-17 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_VGA_patterns_0_0_sim_netlist.vhdl
@@ -249,13 +249,13 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
   signal \oAddrA[9]_INST_0_i_2_n_0\ : STD_LOGIC;
   signal \oAddrA[9]_INST_0_i_4_n_0\ : STD_LOGIC;
   signal \oAddrA[9]_INST_0_i_5_n_0\ : STD_LOGIC;
-  signal \oRed[3]_INST_0_i_1_n_0\ : STD_LOGIC;
   signal \oRed[3]_INST_0_i_2_n_0\ : STD_LOGIC;
   signal \oRed[3]_INST_0_i_3_n_0\ : STD_LOGIC;
   signal \oRed[3]_INST_0_i_4_n_0\ : STD_LOGIC;
   signal \oRed[3]_INST_0_i_5_n_0\ : STD_LOGIC;
   signal \oRed[3]_INST_0_i_6_n_0\ : STD_LOGIC;
   signal \oRed[3]_INST_0_i_7_n_0\ : STD_LOGIC;
+  signal rRGB1 : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \oRed[3]_INST_0_i_4\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \oRed[3]_INST_0_i_6\ : label is "soft_lutpair0";
@@ -273,154 +273,163 @@ inst: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_VGA_patterns
       oAddrA0(7 downto 0) => oAddrA0(9 downto 2),
       oAddrB(11 downto 0) => oAddrB(11 downto 0)
     );
-\oAddrA[0]_INST_0\: unisim.vcomponents.LUT3
+\oAddrA[0]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"80"
+      INIT => X"1500"
     )
         port map (
       I0 => \oAddrA[9]_INST_0_i_1_n_0\,
-      I1 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I2 => iCountH(4),
+      I1 => iCountH(9),
+      I2 => \oAddrA[9]_INST_0_i_2_n_0\,
+      I3 => iCountH(4),
       O => oAddrA(0)
     );
-\oAddrA[1]_INST_0\: unisim.vcomponents.LUT3
+\oAddrA[1]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"80"
+      INIT => X"1500"
     )
         port map (
       I0 => \oAddrA[9]_INST_0_i_1_n_0\,
-      I1 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I2 => iCountH(5),
+      I1 => iCountH(9),
+      I2 => \oAddrA[9]_INST_0_i_2_n_0\,
+      I3 => iCountH(5),
       O => oAddrA(1)
     );
-\oAddrA[2]_INST_0\: unisim.vcomponents.LUT3
+\oAddrA[2]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"80"
+      INIT => X"1500"
     )
         port map (
       I0 => \oAddrA[9]_INST_0_i_1_n_0\,
-      I1 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I2 => oAddrA0(2),
+      I1 => iCountH(9),
+      I2 => \oAddrA[9]_INST_0_i_2_n_0\,
+      I3 => oAddrA0(2),
       O => oAddrA(2)
     );
-\oAddrA[3]_INST_0\: unisim.vcomponents.LUT3
+\oAddrA[3]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"80"
+      INIT => X"1500"
     )
         port map (
       I0 => \oAddrA[9]_INST_0_i_1_n_0\,
-      I1 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I2 => oAddrA0(3),
+      I1 => iCountH(9),
+      I2 => \oAddrA[9]_INST_0_i_2_n_0\,
+      I3 => oAddrA0(3),
       O => oAddrA(3)
     );
-\oAddrA[4]_INST_0\: unisim.vcomponents.LUT3
+\oAddrA[4]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"80"
+      INIT => X"1500"
     )
         port map (
       I0 => \oAddrA[9]_INST_0_i_1_n_0\,
-      I1 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I2 => oAddrA0(4),
+      I1 => iCountH(9),
+      I2 => \oAddrA[9]_INST_0_i_2_n_0\,
+      I3 => oAddrA0(4),
       O => oAddrA(4)
     );
-\oAddrA[5]_INST_0\: unisim.vcomponents.LUT3
+\oAddrA[5]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"80"
+      INIT => X"1500"
     )
         port map (
       I0 => \oAddrA[9]_INST_0_i_1_n_0\,
-      I1 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I2 => oAddrA0(5),
+      I1 => iCountH(9),
+      I2 => \oAddrA[9]_INST_0_i_2_n_0\,
+      I3 => oAddrA0(5),
       O => oAddrA(5)
     );
-\oAddrA[6]_INST_0\: unisim.vcomponents.LUT3
+\oAddrA[6]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"80"
+      INIT => X"1500"
     )
         port map (
       I0 => \oAddrA[9]_INST_0_i_1_n_0\,
-      I1 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I2 => oAddrA0(6),
+      I1 => iCountH(9),
+      I2 => \oAddrA[9]_INST_0_i_2_n_0\,
+      I3 => oAddrA0(6),
       O => oAddrA(6)
     );
-\oAddrA[7]_INST_0\: unisim.vcomponents.LUT3
+\oAddrA[7]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"80"
+      INIT => X"1500"
     )
         port map (
       I0 => \oAddrA[9]_INST_0_i_1_n_0\,
-      I1 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I2 => oAddrA0(7),
+      I1 => iCountH(9),
+      I2 => \oAddrA[9]_INST_0_i_2_n_0\,
+      I3 => oAddrA0(7),
       O => oAddrA(7)
     );
-\oAddrA[8]_INST_0\: unisim.vcomponents.LUT3
+\oAddrA[8]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"80"
+      INIT => X"1500"
     )
         port map (
       I0 => \oAddrA[9]_INST_0_i_1_n_0\,
-      I1 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I2 => oAddrA0(8),
+      I1 => iCountH(9),
+      I2 => \oAddrA[9]_INST_0_i_2_n_0\,
+      I3 => oAddrA0(8),
       O => oAddrA(8)
     );
-\oAddrA[9]_INST_0\: unisim.vcomponents.LUT3
+\oAddrA[9]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"80"
+      INIT => X"1500"
     )
         port map (
       I0 => \oAddrA[9]_INST_0_i_1_n_0\,
-      I1 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I2 => oAddrA0(9),
+      I1 => iCountH(9),
+      I2 => \oAddrA[9]_INST_0_i_2_n_0\,
+      I3 => oAddrA0(9),
       O => oAddrA(9)
     );
-\oAddrA[9]_INST_0_i_1\: unisim.vcomponents.LUT6
+\oAddrA[9]_INST_0_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"00000000FFFF7FFF"
+      INIT => X"AAEAAAAA"
     )
         port map (
-      I0 => iCountV(6),
-      I1 => iCountV(5),
-      I2 => iCountV(8),
-      I3 => iCountV(7),
-      I4 => \oAddrA[9]_INST_0_i_4_n_0\,
-      I5 => iCountV(9),
+      I0 => iCountV(9),
+      I1 => iCountV(7),
+      I2 => iCountV(6),
+      I3 => \oAddrA[9]_INST_0_i_4_n_0\,
+      I4 => iCountV(5),
       O => \oAddrA[9]_INST_0_i_1_n_0\
     );
-\oAddrA[9]_INST_0_i_2\: unisim.vcomponents.LUT5
+\oAddrA[9]_INST_0_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0155FFFF"
+      INIT => X"FFFFFFFEAAAAAAAA"
     )
         port map (
       I0 => iCountH(8),
-      I1 => iCountH(0),
-      I2 => \oAddrA[9]_INST_0_i_5_n_0\,
-      I3 => iCountH(7),
-      I4 => iCountH(9),
+      I1 => iCountH(2),
+      I2 => iCountH(3),
+      I3 => iCountH(1),
+      I4 => \oAddrA[9]_INST_0_i_5_n_0\,
+      I5 => iCountH(7),
       O => \oAddrA[9]_INST_0_i_2_n_0\
     );
-\oAddrA[9]_INST_0_i_4\: unisim.vcomponents.LUT5
+\oAddrA[9]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000001"
+      INIT => X"5555555555555557"
     )
         port map (
-      I0 => iCountV(3),
-      I1 => iCountV(4),
-      I2 => iCountV(1),
-      I3 => iCountV(2),
-      I4 => iCountV(0),
+      I0 => iCountV(8),
+      I1 => iCountV(3),
+      I2 => iCountV(2),
+      I3 => iCountV(0),
+      I4 => iCountV(4),
+      I5 => iCountV(1),
       O => \oAddrA[9]_INST_0_i_4_n_0\
     );
-\oAddrA[9]_INST_0_i_5\: unisim.vcomponents.LUT6
+\oAddrA[9]_INST_0_i_5\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FFFFFFFFFFFFFFFE"
+      INIT => X"FFFE"
     )
         port map (
-      I0 => iCountH(2),
-      I1 => iCountH(1),
-      I2 => iCountH(5),
+      I0 => iCountH(5),
+      I1 => iCountH(4),
+      I2 => iCountH(0),
       I3 => iCountH(6),
-      I4 => iCountH(3),
-      I5 => iCountH(4),
       O => \oAddrA[9]_INST_0_i_5_n_0\
     );
 \oAddrA[9]_INST_0_i_6\: unisim.vcomponents.LUT5
@@ -470,148 +479,160 @@ inst: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_VGA_patterns
       I3 => iCountV(8),
       O => oAddrA1(6)
     );
-\oBlue[0]_INST_0\: unisim.vcomponents.LUT5
+\oBlue[0]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"1515150000150000"
     )
         port map (
-      I0 => iTextColor(8),
-      I1 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I0 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I1 => iCountH(9),
       I2 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I3 => \oRed[3]_INST_0_i_1_n_0\,
+      I3 => rRGB1,
       I4 => iBgrColor(8),
+      I5 => iTextColor(8),
       O => oBlue(0)
     );
-\oBlue[1]_INST_0\: unisim.vcomponents.LUT5
+\oBlue[1]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"1515150000150000"
     )
         port map (
-      I0 => iTextColor(9),
-      I1 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I0 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I1 => iCountH(9),
       I2 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I3 => \oRed[3]_INST_0_i_1_n_0\,
+      I3 => rRGB1,
       I4 => iBgrColor(9),
+      I5 => iTextColor(9),
       O => oBlue(1)
     );
-\oBlue[2]_INST_0\: unisim.vcomponents.LUT5
+\oBlue[2]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"1515150000150000"
     )
         port map (
-      I0 => iTextColor(10),
-      I1 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I0 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I1 => iCountH(9),
       I2 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I3 => \oRed[3]_INST_0_i_1_n_0\,
+      I3 => rRGB1,
       I4 => iBgrColor(10),
+      I5 => iTextColor(10),
       O => oBlue(2)
     );
-\oBlue[3]_INST_0\: unisim.vcomponents.LUT5
+\oBlue[3]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"1515150000150000"
     )
         port map (
-      I0 => iTextColor(11),
-      I1 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I0 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I1 => iCountH(9),
       I2 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I3 => \oRed[3]_INST_0_i_1_n_0\,
+      I3 => rRGB1,
       I4 => iBgrColor(11),
+      I5 => iTextColor(11),
       O => oBlue(3)
     );
-\oGreen[0]_INST_0\: unisim.vcomponents.LUT5
+\oGreen[0]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"1515150000150000"
     )
         port map (
-      I0 => iTextColor(4),
-      I1 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I0 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I1 => iCountH(9),
       I2 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I3 => \oRed[3]_INST_0_i_1_n_0\,
+      I3 => rRGB1,
       I4 => iBgrColor(4),
+      I5 => iTextColor(4),
       O => oGreen(0)
     );
-\oGreen[1]_INST_0\: unisim.vcomponents.LUT5
+\oGreen[1]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"1515150000150000"
     )
         port map (
-      I0 => iTextColor(5),
-      I1 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I0 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I1 => iCountH(9),
       I2 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I3 => \oRed[3]_INST_0_i_1_n_0\,
+      I3 => rRGB1,
       I4 => iBgrColor(5),
+      I5 => iTextColor(5),
       O => oGreen(1)
     );
-\oGreen[2]_INST_0\: unisim.vcomponents.LUT5
+\oGreen[2]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"1515150000150000"
     )
         port map (
-      I0 => iTextColor(6),
-      I1 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I0 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I1 => iCountH(9),
       I2 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I3 => \oRed[3]_INST_0_i_1_n_0\,
+      I3 => rRGB1,
       I4 => iBgrColor(6),
+      I5 => iTextColor(6),
       O => oGreen(2)
     );
-\oGreen[3]_INST_0\: unisim.vcomponents.LUT5
+\oGreen[3]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"1515150000150000"
     )
         port map (
-      I0 => iTextColor(7),
-      I1 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I0 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I1 => iCountH(9),
       I2 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I3 => \oRed[3]_INST_0_i_1_n_0\,
+      I3 => rRGB1,
       I4 => iBgrColor(7),
+      I5 => iTextColor(7),
       O => oGreen(3)
     );
-\oRed[0]_INST_0\: unisim.vcomponents.LUT5
+\oRed[0]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"1515150000150000"
     )
         port map (
-      I0 => iTextColor(0),
-      I1 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I0 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I1 => iCountH(9),
       I2 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I3 => \oRed[3]_INST_0_i_1_n_0\,
+      I3 => rRGB1,
       I4 => iBgrColor(0),
+      I5 => iTextColor(0),
       O => oRed(0)
     );
-\oRed[1]_INST_0\: unisim.vcomponents.LUT5
+\oRed[1]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"1515150000150000"
     )
         port map (
-      I0 => iTextColor(1),
-      I1 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I0 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I1 => iCountH(9),
       I2 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I3 => \oRed[3]_INST_0_i_1_n_0\,
+      I3 => rRGB1,
       I4 => iBgrColor(1),
+      I5 => iTextColor(1),
       O => oRed(1)
     );
-\oRed[2]_INST_0\: unisim.vcomponents.LUT5
+\oRed[2]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"1515150000150000"
     )
         port map (
-      I0 => iTextColor(2),
-      I1 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I0 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I1 => iCountH(9),
       I2 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I3 => \oRed[3]_INST_0_i_1_n_0\,
+      I3 => rRGB1,
       I4 => iBgrColor(2),
+      I5 => iTextColor(2),
       O => oRed(2)
     );
-\oRed[3]_INST_0\: unisim.vcomponents.LUT5
+\oRed[3]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"1515150000150000"
     )
         port map (
-      I0 => iTextColor(3),
-      I1 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I0 => \oAddrA[9]_INST_0_i_1_n_0\,
+      I1 => iCountH(9),
       I2 => \oAddrA[9]_INST_0_i_2_n_0\,
-      I3 => \oRed[3]_INST_0_i_1_n_0\,
+      I3 => rRGB1,
       I4 => iBgrColor(3),
+      I5 => iTextColor(3),
       O => oRed(3)
     );
 \oRed[3]_INST_0_i_1\: unisim.vcomponents.LUT6
@@ -625,7 +646,7 @@ inst: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_VGA_patterns
       I3 => \oRed[3]_INST_0_i_5_n_0\,
       I4 => \oRed[3]_INST_0_i_6_n_0\,
       I5 => \oRed[3]_INST_0_i_7_n_0\,
-      O => \oRed[3]_INST_0_i_1_n_0\
+      O => rRGB1
     );
 \oRed[3]_INST_0_i_2\: unisim.vcomponents.LUT6
     generic map(

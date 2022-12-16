@@ -48,13 +48,27 @@ module VGA_patterns #(
     output wire[3:0] oRed, oGreen, oBlue // 12 bits RGB
     );    
 
+
+reg[11:0] rRGB;
+always @(*) begin
+    if (iCountH > WIDTH || iCountV > HEIGHT) begin
+        rRGB = 0;
+    end else if (iDataB[15 -(iCountH%16)] == 1) begin
+        rRGB = iTextColor;
+    end else begin
+        rRGB = iBgrColor;
+    end
+end
+
+
+
 assign oAddrA = (iCountH <= WIDTH && iCountV <= HEIGHT)? ((iCountH / 16) + ((iCountV / 32) * 40)) : 0;
 
 assign oAddrB = (iCountV % 32) + iDataA;
 
-assign oRed   = (iCountH <= WIDTH && iCountV <= HEIGHT && iDataB[15 -(iCountH%16)] == 1)? iTextColor[3:0] : iBgrColor[3:0];
-assign oGreen = (iCountH <= WIDTH && iCountV <= HEIGHT && iDataB[15 -(iCountH%16)] == 1)? iTextColor[7:4] : iBgrColor[7:4];
-assign oBlue  = (iCountH <= WIDTH && iCountV <= HEIGHT && iDataB[15 -(iCountH%16)] == 1)? iTextColor[11:8] : iBgrColor[11:8];
+assign oRed   = rRGB[3:0];
+assign oGreen = rRGB[7:4];
+assign oBlue  = rRGB[11:8];
 
 
 assign oHS = iHS;

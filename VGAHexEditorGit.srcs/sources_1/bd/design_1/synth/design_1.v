@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-//Date        : Tue Dec 13 17:52:03 2022
+//Date        : Fri Dec 16 17:49:13 2022
 //Host        : Omen-17 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -63,6 +63,7 @@ module design_1
   wire [9:0]num_capture_4bit_0_oAddr;
   wire [11:0]num_capture_4bit_0_oBgrColor;
   wire [11:0]num_capture_4bit_0_oData;
+  wire num_capture_4bit_0_oFont;
   wire [11:0]num_capture_4bit_0_oTextColor;
   wire num_capture_4bit_0_oWe;
 
@@ -81,6 +82,7 @@ module design_1
   design_1_AsciiCharsMem_0_0 AsciiCharsMem_0
        (.iAddr(VGA_patterns_0_oAddrB),
         .iClk(Net),
+        .iFont(num_capture_4bit_0_oFont),
         .oData(AsciiCharsMem_0_oData));
   design_1_Debounce_Switch_0_0 Debounce_Switch_0
        (.i_Clk(Net),
@@ -141,6 +143,7 @@ module design_1
         .oAddr(num_capture_4bit_0_oAddr),
         .oBgrColor(num_capture_4bit_0_oBgrColor),
         .oData(num_capture_4bit_0_oData),
+        .oFont(num_capture_4bit_0_oFont),
         .oTextColor(num_capture_4bit_0_oTextColor),
         .oWe(num_capture_4bit_0_oWe));
 endmodule

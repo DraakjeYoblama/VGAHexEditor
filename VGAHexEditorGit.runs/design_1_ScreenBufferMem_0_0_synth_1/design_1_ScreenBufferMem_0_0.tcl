@@ -72,6 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "design_1_ScreenBufferMem_0_0_synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
@@ -96,6 +97,7 @@ read_mem {
   {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/chars.mem}
   {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/hello_world.mem}
   {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/empty.mem}
+  {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/comicsans.mem}
 }
 read_verilog -library xil_defaultlib {{C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/ScreenBufferMem.v}}
 read_ip -quiet {{C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/bd/design_1/ip/design_1_ScreenBufferMem_0_0/design_1_ScreenBufferMem_0_0.xci}}
