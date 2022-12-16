@@ -26,7 +26,7 @@ module ScreenBufferMem #(
   //  Supports only synchronous reading 
   reg [WIDTH-1:0] rDataA;
   
-  always @(posedge iClk)
+  always @(*)//posedge iClk)
   begin
     rDataA <= rMem[iAddrA]; 
   end

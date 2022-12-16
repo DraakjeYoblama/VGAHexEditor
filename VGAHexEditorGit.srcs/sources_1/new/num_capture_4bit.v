@@ -25,7 +25,7 @@ module num_capture_4bit(
     input wire iClk, iIncr, iMove, iSpace, iRst, iSw0, iSw1,
     output wire[9:0] oAddr,
     output wire[11:0] oData, oTextColor, oBgrColor,
-    output wire oWe
+    output wire oFont, oWe
     );
     
     //state definitions
@@ -40,14 +40,14 @@ module num_capture_4bit(
     localparam sDecMove = 6;
     localparam sLineMove = 7;
     
-    localparam sPushSpace = 9;
-    localparam sIncSpace = 10;
-    localparam sDecSpace = 11;
-    localparam sLineSpace = 12;
+    localparam sPushSpace = 8;
+    localparam sIncSpace = 9;
+    localparam sDecSpace = 10;
+    localparam sLineSpace = 11;
     
-    localparam sIncFont = 13;
-    localparam sIncTextC = 14;
-    localparam sIncBgrC = 15;
+    localparam sIncFont = 12;
+    localparam sIncTextC = 13;
+    localparam sIncBgrC = 14;
 
 
 //----------------------------------------------------------------------------------------   
@@ -85,7 +85,9 @@ module num_capture_4bit(
                     rFSM_Next <= sIdle;
                 end
             sPushNumb: begin
-                if(iIncr == 0)
+                if (iIncr == 0 && iSw0 == 1 && iSw1 == 1) begin
+                    rFSM_Next <= sIncFont;
+                end else if (iIncr == 0)
                     rFSM_Next <= sIncNumb;
                 else                  
                     rFSM_Next <= sPushNumb;
@@ -213,10 +215,10 @@ module num_capture_4bit(
       end
 
 //----------------------------------------------------------------------------------------  
-    //sIncFont
-    //sIncTextC
-    //sIncBgrC
-    // next text color logic
+
+    // next text and background color logic
+    // next font logic
+    reg rCurrFont, rNextFont;
     reg[3:0] rCurrTextC, rNextTextC, rCurrBgrC, rNextBgrC;
     reg[11:0] rTextColor, rBgrColor;
     
@@ -224,6 +226,7 @@ module num_capture_4bit(
      begin
         rCurrTextC <= rNextTextC;
         rCurrBgrC <= rNextBgrC;
+        rCurrFont <= rNextFont;
      end
 
      always @(*)
@@ -231,67 +234,74 @@ module num_capture_4bit(
         if (rFSM_Curr == sIncTextC) begin
             rNextTextC = rCurrTextC + 1;   
         end else if (rFSM_Curr == sIncBgrC) begin
-            rNextBgrC = rCurrBgrC + 1;   
+            rNextBgrC = rCurrBgrC + 1; 
+        end else if (rFSM_Curr == sIncFont) begin
+            rNextFont = rCurrFont + 1;  
+        end else if (rFSM_Curr == iRst) begin
+            rNextTextC <= 0;
+            rNextBgrC <= 0;
+            rNextFont <= 0;
         end else begin
             rNextTextC = rCurrTextC;
             rNextBgrC = rCurrBgrC;
+            rNextFont = rCurrFont;
         end
         
-        case(rCurrTextC)
+        case(rCurrTextC) //bbbbggggrrrr
             0: begin
             rTextColor = 'b000000001111;
             end
             1: begin
-            rTextColor = 'b000011110000;
-            end
-            2: begin
-            rTextColor = 'b111100000000;
-            end
-            3: begin
-            rTextColor = 'b111111110000;
-            end
-            4: begin
-            rTextColor = 'b000011111111;
-            end
-            5: begin
-            rTextColor = 'b111100001111;
-            end
-            6: begin
             rTextColor = 'b111111111111;
             end
+            2: begin
+            rTextColor = 'b000011110000;
+            end
+            3: begin
+            rTextColor = 'b111100000000;
+            end
+            4: begin
+            rTextColor = 'b111111110000;
+            end
+            5: begin
+            rTextColor = 'b000011111111;
+            end
+            6: begin
+            rTextColor = 'b111100001111;
+            end
             7: begin
-            rTextColor = 'b001000001000;
+            rTextColor = 'b000001111111;
             end
             8: begin
-            rTextColor = 'b000010000010;
+            rTextColor = 'b000011110111;
             end
             9: begin
-            rTextColor = 'b001000000000;
+            rTextColor = 'b011111110000;
             end
             10: begin
-            rTextColor = 'b010010000000;
+            rTextColor = 'b111101110000;
             end
             11: begin
-            rTextColor = 'b001001001100;
+            rTextColor = 'b111100000111;
             end
             12: begin
-            rTextColor = 'b100100001000;
+            rTextColor = 'b011100001111;
             end
             13: begin
-            rTextColor = 'b001001100000;
+            rTextColor = 'b101011010010;
             end
             14: begin
-            rTextColor = 'b001110000000;
+            rTextColor = 'b101010101010;
             end
             15: begin
-            rTextColor = 'b001000011110;
+            rTextColor = 'b001001111001;
             end
             default: begin
             rTextColor = 'b000000001111;
             end
         endcase
             
-        case(rCurrBgrC)
+        case(rCurrBgrC) //bbbbggggrrrr
             0: begin
             rBgrColor = 'b000000000000;
             end
@@ -299,49 +309,49 @@ module num_capture_4bit(
             rBgrColor = 'b001100000000;
             end
             2: begin
-            rBgrColor = 'b000001100000;
-            end
-            3: begin
-            rBgrColor = 'b001000001100;
-            end
-            4: begin
-            rBgrColor = 'b010000001000;
-            end
-            5: begin
-            rBgrColor = 'b0001001011;
-            end
-            6: begin
-            rBgrColor = 'b010001000000;
-            end
-            7: begin
-            rBgrColor = 'b001010000010;
-            end
-            8: begin
-            rBgrColor = 'b011000100000;
-            end
-            9: begin
-            rBgrColor = 'b001000001100;
-            end
-            10: begin
-            rBgrColor = 'b000011000000;
-            end
-            11: begin
             rBgrColor = 'b000000110000;
             end
+            3: begin
+            rBgrColor = 'b000000000011;
+            end
+            4: begin
+            rBgrColor = 'b001100110000;
+            end
+            5: begin
+            rBgrColor = 'b000000110011;
+            end
+            6: begin
+            rBgrColor = 'b001100000011;
+            end
+            7: begin
+            rBgrColor = 'b001100110011;
+            end
+            8: begin
+            rBgrColor = 'b000100010001;
+            end
+            9: begin
+            rBgrColor = 'b000000110110;
+            end
+            10: begin
+            rBgrColor = 'b000001100011;
+            end
+            11: begin
+            rBgrColor = 'b001101100000;
+            end
             12: begin
-            rBgrColor = 'b000011100000;
+            rBgrColor = 'b011000110000;
             end
             13: begin
-            rBgrColor = 'b001110000000;
+            rBgrColor = 'b011000000011;
             end
             14: begin
-            rBgrColor = 'b000110000000;
+            rBgrColor = 'b001100000110;
             end
             15: begin
-            rBgrColor = 'b001000000000;
+            rBgrColor = 'b101011011110;
             end
             default: begin
-            rBgrColor = 'b111100000000;
+            rBgrColor = 'b000000000000;
             end
         endcase
      end
@@ -353,4 +363,5 @@ module num_capture_4bit(
      assign oWe = 1;
      assign oTextColor = rTextColor;
      assign oBgrColor = rBgrColor;
+     assign oFont = rCurrFont;
      endmodule

@@ -6,8 +6,8 @@
 
 ‎  | SW1 == 0 | SW1 == 1 
 --- | --- | ---  
-**SW0 == 0** | go forward 1 block  | next line 
-**SW0 == 1** | go back 1 block | next line  
+**SW0 == 0** | go forward 1 block (Btn 1 and 2)  | next line (Btn 1 and 2)
+**SW0 == 1** | go back 1 block (Btn 1 and 2) | color and font settings (Btn 0, 1 and 2)
 
 **Button 2** `(iSpace)` → type space
 

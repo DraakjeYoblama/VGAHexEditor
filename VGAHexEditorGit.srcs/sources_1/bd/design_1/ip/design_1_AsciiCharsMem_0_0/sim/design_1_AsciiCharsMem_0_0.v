@@ -56,11 +56,13 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_AsciiCharsMem_0_0 (
   iClk,
+  iFont,
   iAddr,
   oData
 );
 
 input wire iClk;
+input wire iFont;
 input wire [11 : 0] iAddr;
 output wire [15 : 0] oData;
 
@@ -69,6 +71,7 @@ output wire [15 : 0] oData;
     .DEPTH(3040)
   ) inst (
     .iClk(iClk),
+    .iFont(iFont),
     .iAddr(iAddr),
     .oData(oData)
   );
