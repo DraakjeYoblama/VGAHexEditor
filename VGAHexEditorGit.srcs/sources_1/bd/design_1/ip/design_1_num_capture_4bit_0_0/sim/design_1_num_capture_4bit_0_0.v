@@ -81,7 +81,7 @@ output wire [9 : 0] oAddr;
 output wire [11 : 0] oData;
 output wire [11 : 0] oTextColor;
 output wire [11 : 0] oBgrColor;
-output wire oFont;
+output wire [1 : 0] oFont;
 output wire oWe;
 
   num_capture_4bit inst (

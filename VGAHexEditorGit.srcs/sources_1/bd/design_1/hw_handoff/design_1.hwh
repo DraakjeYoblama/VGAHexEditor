@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 16 17:49:13 2022" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 16 19:27:25 2022" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -38,8 +38,8 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="VGA_timings_0" PORT="iRst"/>
         <CONNECTION INSTANCE="VGA_patterns_0" PORT="iRst"/>
-        <CONNECTION INSTANCE="num_capture_4bit_0" PORT="iRst"/>
         <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iRst"/>
+        <CONNECTION INSTANCE="num_capture_4bit_0" PORT="iRst"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="iIncr" SIGIS="undef" SIGNAME="External_Ports_iIncr">
@@ -86,7 +86,7 @@
             <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="iFont" SIGIS="undef" SIGNAME="num_capture_4bit_0_oFont">
+        <PORT DIR="I" LEFT="1" NAME="iFont" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oFont">
           <CONNECTIONS>
             <CONNECTION INSTANCE="num_capture_4bit_0" PORT="oFont"/>
           </CONNECTIONS>
@@ -975,9 +975,9 @@
             <CONNECTION INSTANCE="Debounce_Switch_1" PORT="i_Clk"/>
             <CONNECTION INSTANCE="Debounce_Switch_2" PORT="i_Clk"/>
             <CONNECTION INSTANCE="VGA_patterns_0" PORT="iClk"/>
+            <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iClk"/>
             <CONNECTION INSTANCE="num_capture_4bit_0" PORT="iClk"/>
             <CONNECTION INSTANCE="AsciiCharsMem_0" PORT="iClk"/>
-            <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iClk"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1045,7 +1045,7 @@
             <CONNECTION INSTANCE="VGA_patterns_0" PORT="iBgrColor"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="oFont" SIGIS="undef" SIGNAME="num_capture_4bit_0_oFont">
+        <PORT DIR="O" LEFT="1" NAME="oFont" RIGHT="0" SIGIS="undef" SIGNAME="num_capture_4bit_0_oFont">
           <CONNECTIONS>
             <CONNECTION INSTANCE="AsciiCharsMem_0" PORT="iFont"/>
           </CONNECTIONS>
