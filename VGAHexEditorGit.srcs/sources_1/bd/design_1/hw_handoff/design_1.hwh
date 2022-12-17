@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec 17 12:39:53 2022" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec 17 14:15:16 2022" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -38,8 +38,8 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="VGA_timings_0" PORT="iRst"/>
         <CONNECTION INSTANCE="VGA_patterns_0" PORT="iRst"/>
-        <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iRst"/>
         <CONNECTION INSTANCE="num_capture_4bit_0" PORT="iRst"/>
+        <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iRst"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="iIncr" SIGIS="undef" SIGNAME="External_Ports_iIncr">
@@ -975,9 +975,9 @@
             <CONNECTION INSTANCE="Debounce_Switch_1" PORT="i_Clk"/>
             <CONNECTION INSTANCE="Debounce_Switch_2" PORT="i_Clk"/>
             <CONNECTION INSTANCE="VGA_patterns_0" PORT="iClk"/>
-            <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iClk"/>
             <CONNECTION INSTANCE="num_capture_4bit_0" PORT="iClk"/>
             <CONNECTION INSTANCE="AsciiCharsMem_0" PORT="iClk"/>
+            <CONNECTION INSTANCE="ScreenBufferMem_0" PORT="iClk"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
