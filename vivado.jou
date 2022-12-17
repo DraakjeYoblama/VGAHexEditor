@@ -2,18 +2,14 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Thu Dec  1 17:23:33 2022
-# Process ID: 15292
-# Current directory: C:/Vivado/GitHub/VGAHexEditor
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20416 C:\Vivado\GitHub\VGAHexEditor\VGAHexEditorGit.xpr
-# Log file: C:/Vivado/GitHub/VGAHexEditor/vivado.log
-# Journal file: C:/Vivado/GitHub/VGAHexEditor\vivado.jou
+# Start of session at: Sat Dec 17 16:26:40 2022
+# Process ID: 13144
+# Current directory: C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent23948 C:\Users\douwe\Documents\Vivado Projects\VGAHexEditorGit\VGAHexEditorGit.xpr
+# Log file: C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/vivado.log
+# Journal file: C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project C:/Vivado/GitHub/VGAHexEditor/VGAHexEditorGit.xpr
+open_project {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.xpr}
 update_compile_order -fileset sources_1
-update_module_reference design_1_ScreenBufferMem_0_0
-update_module_reference design_1_VGA_timings_0_0
-update_module_reference design_1_AsciiCharsMem_0_0
-update_module_reference design_1_num_capture_4bit_0_0
-update_module_reference {design_1_Debounce_Switch_0_0 design_1_Debounce_Switch_1_0}
+file copy -force {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.runs/impl_1/design_1_wrapper.bit} {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/iets.bit}
