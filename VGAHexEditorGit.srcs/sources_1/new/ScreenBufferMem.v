@@ -46,7 +46,7 @@ module ScreenBufferMem #(
     if(iRst)
     begin
       for(i = 0;i <= 599;i = i+1) 
-        rMem[i] = 000000000000;
+        rMem[i] <= 000000000000;
     end
     rDataB <= rMem[iAddrB]; 
   end
