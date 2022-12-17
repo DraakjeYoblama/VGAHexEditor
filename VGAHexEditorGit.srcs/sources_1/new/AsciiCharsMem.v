@@ -23,8 +23,9 @@ module AsciiCharsMem #(
   initial
   begin
   $readmemb("chars.mem", rMem);
-  $readmemb("comicsans.mem", rMem2);
-  $readmemb("minecraft.mem", rMem3);  
+  $readmemb("minecraft.mem", rMem2);
+  $readmemb("comicsans.mem", rMem3);
+  $readmemb("papyrus.mem", rMem4);
   end
   
   // Supports only synchronous reading 
@@ -36,6 +37,8 @@ module AsciiCharsMem #(
         rData <= rMem2[iAddr]; 
     end else if (iFont == 2) begin
         rData <= rMem3[iAddr]; 
+    end else if (iFont == 3) begin
+        rData <= rMem4[iAddr]; 
     end else begin
         rData <= rMem[iAddr]; 
     end
