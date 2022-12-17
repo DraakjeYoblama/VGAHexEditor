@@ -16,9 +16,9 @@
       "Debounce_Switch_1": "",
       "Debounce_Switch_2": "",
       "VGA_patterns_0": "",
-      "ScreenBufferMem_0": "",
       "num_capture_4bit_0": "",
-      "AsciiCharsMem_0": ""
+      "AsciiCharsMem_0": "",
+      "ScreenBufferMem_0": ""
     },
     "ports": {
       "oHS": {
@@ -377,65 +377,6 @@
           }
         }
       },
-      "ScreenBufferMem_0": {
-        "vlnv": "xilinx.com:module_ref:ScreenBufferMem:1.0",
-        "xci_name": "design_1_ScreenBufferMem_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "ScreenBufferMem",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "iClk": {
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
-              },
-              "FREQ_HZ": {
-                "value": "25000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              }
-            }
-          },
-          "iAddrA": {
-            "direction": "I",
-            "left": "9",
-            "right": "0"
-          },
-          "iAddrB": {
-            "direction": "I",
-            "left": "9",
-            "right": "0"
-          },
-          "iDataB": {
-            "direction": "I",
-            "left": "11",
-            "right": "0"
-          },
-          "iWeB": {
-            "direction": "I"
-          },
-          "iRst": {
-            "direction": "I"
-          },
-          "oDataA": {
-            "direction": "O",
-            "left": "11",
-            "right": "0"
-          },
-          "oDataB": {
-            "direction": "O",
-            "left": "11",
-            "right": "0"
-          }
-        }
-      },
       "num_capture_4bit_0": {
         "vlnv": "xilinx.com:module_ref:num_capture_4bit:1.0",
         "xci_name": "design_1_num_capture_4bit_0_0",
@@ -552,6 +493,65 @@
             "right": "0"
           }
         }
+      },
+      "ScreenBufferMem_0": {
+        "vlnv": "xilinx.com:module_ref:ScreenBufferMem:1.0",
+        "xci_name": "design_1_ScreenBufferMem_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ScreenBufferMem",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "iClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "iAddrA": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "iAddrB": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "iDataB": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "iWeB": {
+            "direction": "I"
+          },
+          "iRst": {
+            "direction": "I"
+          },
+          "oDataA": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "oDataB": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          }
+        }
       }
     },
     "nets": {
@@ -587,9 +587,9 @@
           "Debounce_Switch_1/i_Clk",
           "Debounce_Switch_2/i_Clk",
           "VGA_patterns_0/iClk",
-          "ScreenBufferMem_0/iClk",
           "num_capture_4bit_0/iClk",
-          "AsciiCharsMem_0/iClk"
+          "AsciiCharsMem_0/iClk",
+          "ScreenBufferMem_0/iClk"
         ]
       },
       "ScreenBufferMem_0_oDataA": {
@@ -639,8 +639,8 @@
           "iRst",
           "VGA_timings_0/iRst",
           "VGA_patterns_0/iRst",
-          "ScreenBufferMem_0/iRst",
-          "num_capture_4bit_0/iRst"
+          "num_capture_4bit_0/iRst",
+          "ScreenBufferMem_0/iRst"
         ]
       },
       "VGA_patterns_0_oAddrB": {
