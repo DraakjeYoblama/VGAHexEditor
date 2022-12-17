@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Fri Dec 16 17:50:53 2022
+// Date        : Sat Dec 17 14:17:07 2022
 // Host        : Omen-17 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub {c:/Users/douwe/Documents/Vivado
 //               Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/bd/design_1/ip/design_1_ScreenBufferMem_0_0/design_1_ScreenBufferMem_0_0_stub.v}

@@ -25,10 +25,21 @@ module ScreenBufferMem #(
   // Logic for Port A
   //  Supports only synchronous reading 
   reg [WIDTH-1:0] rDataA;
+  reg[24:0] rVisibleCurr, rVisibleNext;
+  
+  always @(posedge iClk)
+  begin
+    rVisibleNext = rVisibleCurr +1;
+    rVisibleCurr = rVisibleNext;
+  end
   
   always @(*)//posedge iClk)
   begin
-    rDataA <= rMem[iAddrA]; 
+    if (iAddrA == iAddrB && rVisibleCurr > 'd13421772) begin
+        rDataA <= 0; 
+    end else begin
+        rDataA <= rMem[iAddrA];
+    end
   end
   
   assign oDataA = rDataA;
