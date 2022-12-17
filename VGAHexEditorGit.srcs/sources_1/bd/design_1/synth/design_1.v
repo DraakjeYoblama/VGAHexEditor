@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-//Date        : Sat Dec 17 14:15:16 2022
+//Date        : Sat Dec 17 16:07:37 2022
 //Host        : Omen-17 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -65,6 +65,7 @@ module design_1
   wire [11:0]num_capture_4bit_0_oData;
   wire [1:0]num_capture_4bit_0_oFont;
   wire [11:0]num_capture_4bit_0_oTextColor;
+  wire num_capture_4bit_0_oVisible;
   wire num_capture_4bit_0_oWe;
 
   assign iClk_1 = iClk;
@@ -102,6 +103,7 @@ module design_1
         .iClk(Net),
         .iDataB(num_capture_4bit_0_oData),
         .iRst(iRst_0_1),
+        .iVisible(num_capture_4bit_0_oVisible),
         .iWeB(num_capture_4bit_0_oWe),
         .oDataA(ScreenBufferMem_0_oDataA));
   design_1_VGA_patterns_0_0 VGA_patterns_0
@@ -145,5 +147,6 @@ module design_1
         .oData(num_capture_4bit_0_oData),
         .oFont(num_capture_4bit_0_oFont),
         .oTextColor(num_capture_4bit_0_oTextColor),
+        .oVisible(num_capture_4bit_0_oVisible),
         .oWe(num_capture_4bit_0_oWe));
 endmodule

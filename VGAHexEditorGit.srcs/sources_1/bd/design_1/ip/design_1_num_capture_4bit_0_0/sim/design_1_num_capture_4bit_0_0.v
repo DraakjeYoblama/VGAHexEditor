@@ -67,7 +67,8 @@ module design_1_num_capture_4bit_0_0 (
   oTextColor,
   oBgrColor,
   oFont,
-  oWe
+  oWe,
+  oVisible
 );
 
 input wire iClk;
@@ -83,6 +84,7 @@ output wire [11 : 0] oTextColor;
 output wire [11 : 0] oBgrColor;
 output wire [1 : 0] oFont;
 output wire oWe;
+output wire oVisible;
 
   num_capture_4bit inst (
     .iClk(iClk),
@@ -97,6 +99,7 @@ output wire oWe;
     .oTextColor(oTextColor),
     .oBgrColor(oBgrColor),
     .oFont(oFont),
-    .oWe(oWe)
+    .oWe(oWe),
+    .oVisible(oVisible)
   );
 endmodule
