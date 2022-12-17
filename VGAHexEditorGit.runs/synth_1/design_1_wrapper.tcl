@@ -71,6 +71,8 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
+set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg400-1
@@ -96,6 +98,7 @@ read_mem {
   {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/empty.mem}
   {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/comicsans.mem}
   {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/minecraft.mem}
+  {C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/new/papyrus.mem}
 }
 read_verilog -library xil_defaultlib {{C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v}}
 add_files {{C:/Users/douwe/Documents/Vivado Projects/VGAHexEditorGit/VGAHexEditorGit.srcs/sources_1/bd/design_1/design_1.bd}}
