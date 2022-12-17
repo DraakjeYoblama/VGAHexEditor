@@ -360,22 +360,22 @@ module num_capture_4bit(
 //----------------------------------------------------------------------------------------   
 
     // knipperende indicator van positie
-reg[24:0] rVisibleCurr, rVisibleNext;
+reg[24:0] rVisCountCurr, rVisCountNext;
 reg rVisible;
   
   always @(posedge iClk)
   begin
     if (rFSM_Curr == sPushNumb || rFSM_Curr == sPushMove || rFSM_Curr == sPushSpace || rFSM_Curr == sRst) begin
-        rVisibleNext = 0;
+        rVisCountNext = 0;
     end else begin
-        rVisibleNext = rVisibleCurr +1;
+        rVisCountNext = rVisCountCurr +1;
     end
-    rVisibleCurr = rVisibleNext;
+    rVisCountCurr = rVisCountNext;
   end
   
   always @(*)//posedge iClk)
   begin
-    if (rVisibleCurr > 'd13421772) begin
+    if (rVisCountCurr > 'd13421772) begin
         rVisible <= 0; 
     end else begin
         rVisible <= 1;

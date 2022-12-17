@@ -153,10 +153,10 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_clk_wiz_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_Debounce_Switch_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_Debounce_Switch_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_clk_wiz_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_VGA_timings_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_Debounce_Switch_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_Debounce_Switch_2_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_VGA_patterns_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_num_capture_4bit_0_0"/>
