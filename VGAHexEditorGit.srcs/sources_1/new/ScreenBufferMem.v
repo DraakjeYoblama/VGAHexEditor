@@ -5,11 +5,9 @@ module ScreenBufferMem #(
   parameter   DEPTH =  600
   )
   (
-  input   wire                        iClk,
+  input   wire                        iClk, iWeB, iRst, iVisible,
   input   wire [$clog2(DEPTH)-1:0]    iAddrA, iAddrB,
   input   wire [WIDTH-1:0]            iDataB,
-  input   wire                        iWeB,
-  input   wire                        iRst,
   output  wire [WIDTH-1:0]            oDataA,oDataB
   );
   
@@ -25,17 +23,10 @@ module ScreenBufferMem #(
   // Logic for Port A
   //  Supports only synchronous reading 
   reg [WIDTH-1:0] rDataA;
-  reg[24:0] rVisibleCurr, rVisibleNext;
-  
-  always @(posedge iClk)
-  begin
-    rVisibleNext = rVisibleCurr +1;
-    rVisibleCurr = rVisibleNext;
-  end
-  
+
   always @(*)//posedge iClk)
   begin
-    if (iAddrA == iAddrB && rVisibleCurr > 'd13421772) begin
+    if (iAddrA == iAddrB && iVisible == 0) begin
         rDataA <= 0; 
     end else begin
         rDataA <= rMem[iAddrA];

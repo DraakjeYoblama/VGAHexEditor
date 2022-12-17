@@ -26,7 +26,7 @@ module num_capture_4bit(
     output wire[9:0] oAddr,
     output wire[11:0] oData, oTextColor, oBgrColor,
     output wire[1:0] oFont,
-    output wire  oWe
+    output wire  oWe, oVisible
     );
     
     //state definitions
@@ -358,6 +358,32 @@ module num_capture_4bit(
      end
 
 //----------------------------------------------------------------------------------------   
+
+    // knipperende indicator van positie
+reg[24:0] rVisibleCurr, rVisibleNext;
+reg rVisible;
+  
+  always @(posedge iClk)
+  begin
+    if (rFSM_Curr == sPushNumb || rFSM_Curr == sPushMove || rFSM_Curr == sPushSpace || rFSM_Curr == sRst) begin
+        rVisibleNext = 0;
+    end else begin
+        rVisibleNext = rVisibleCurr +1;
+    end
+    rVisibleCurr = rVisibleNext;
+  end
+  
+  always @(*)//posedge iClk)
+  begin
+    if (rVisibleCurr > 'd13421772) begin
+        rVisible <= 0; 
+    end else begin
+        rVisible <= 1;
+    end
+  end
+
+//----------------------------------------------------------------------------------------   
+
      // assigning to outputs
      assign oData = rData;
      assign oAddr = 40*rCurrAddrVert + rCurrAddrHori;
@@ -365,4 +391,5 @@ module num_capture_4bit(
      assign oTextColor = rTextColor;
      assign oBgrColor = rBgrColor;
      assign oFont = rCurrFont;
+     assign oVisible = rVisible;
      endmodule
